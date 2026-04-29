@@ -1,0 +1,1611 @@
+ 
+
+    <!DOCTYPE html> 
+
+    <html lang="hu"> 
+
+    <head> 
+
+        <meta charset="UTF-8"> 
+
+        <title>GamblingAddicts AI - Bet of the Day</title> 
+
+        <style> 
+
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@700&display=swap'); 
+
+             
+
+            body { background: #0f172a; color: #f8fafc; font-family: 'Inter', sans-serif; margin: 0; padding: 20px; } 
+
+            .container { max-width: 1100px; margin: 0 auto; } 
+
+             
+
+            header { text-align: center; padding: 40px 0; border-bottom: 1px solid #1e293b; margin-bottom: 30px; } 
+
+            .logo { font-family: 'Orbitron'; color: #38bdf8; font-size: 2rem; letter-spacing: 2px; } 
+
+             
+
+            /* TÁBLÁZAT STÍLUS */ 
+
+            .match-table { width: 100%; border-collapse: separate; border-spacing: 0 10px; } 
+
+            .match-table th { text-align: left; padding: 15px; color: #64748b; font-size: 0.8rem; text-transform: uppercase; } 
+
+             
+
+            .match-row { background: #1e293b; transition: 0.2s; cursor: pointer; } 
+
+            .match-row:hover { background: #334155; transform: scale(1.01); } 
+
+             
+
+            .match-row td { padding: 20px 15px; } 
+
+            .match-row td:first-child { border-radius: 12px 0 0 12px; } 
+
+            .match-row td:last-child { border-radius: 0 12px 12px 0; } 
+
+             
+
+            .league-tag { font-size: 0.7rem; background: #0f172a; padding: 4px 8px; border-radius: 4px; color: #94a3b8; } 
+
+            .team-name { font-weight: 600; font-size: 1rem; } 
+
+             
+
+            .pick-box { background: #38bdf8; color: #0f172a; font-weight: 800; padding: 10px 20px; border-radius: 8px; text-align: center; min-width: 40px; display: inline-block; } 
+
+            .trust-bar-bg { background: #0f172a; width: 100px; height: 8px; border-radius: 4px; margin-top: 5px; } 
+
+            .trust-bar-fill { background: #10b981; height: 100%; border-radius: 4px; } 
+
+             
+
+            /* MODAL / SIMULATOR */ 
+
+            .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); } 
+
+            .modal-content { background: #0f172a; margin: 5% auto; padding: 30px; border-radius: 20px; width: 500px; border: 1px solid #38bdf8; text-align: center; } 
+
+             
+
+            .pitch { width: 100%; height: 180px; background: #15803d; border-radius: 10px; position: relative; margin: 20px 0; overflow: hidden; border: 2px solid #334155; } 
+
+            .pitch::after { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,0.2); } 
+
+            .close-btn { float: right; cursor: pointer; color: #64748b; font-size: 1.5rem; } 
+
+        </style> 
+
+    </head> 
+
+    <body> 
+
+  
+
+    <div class="container"> 
+
+        <header> 
+
+            <div class="logo">GAMBLINGADDICTS AI</div> 
+
+            <p style="color: #94a3b8">Heti Elemzések & Mesterséges Intelligencia Tippek</p> 
+
+        </header> 
+
+  
+
+        <table class="match-table"> 
+
+            <thead> 
+
+                <tr> 
+
+                    <th>Esemény / Bajnokság</th> 
+
+                    <th>Mérkőzés</th> 
+
+                    <th>AI Tipp</th> 
+
+                    <th>Bizalmi szint</th> 
+
+                    <th>Várható gól (xG)</th> 
+
+                </tr> 
+
+            </thead> 
+
+            <tbody> 
+
+                 
+
+                <tr class="match-row" onclick='openSim("Leeds United FC", "Burnley FC", 1.611764705882353, 1.2750000000000001)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Premier League</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-01 19:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Leeds United FC - Burnley FC</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">46%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 46%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.89</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Brentford FC", "West Ham United FC", 1.5602941176470588, 1.3000000000000003)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Premier League</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-02 14:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Brentford FC - West Ham United FC</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">44%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 44%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.86</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Newcastle United FC", "Brighton & Hove Albion FC", 1.2602941176470588, 1.4441176470588237)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Premier League</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-02 14:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Newcastle United FC - Brighton & Hove Albion FC</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">41%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 41%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.70</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Wolverhampton Wanderers FC", "Sunderland AFC", 0.9838235294117648, 1.4794117647058824)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Premier League</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-02 14:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Wolverhampton Wanderers FC - Sunderland AFC</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">52%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 52%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.46</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Arsenal FC", "Fulham FC", 1.6441176470588237, 1.0029411764705882)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Premier League</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-02 16:30</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Arsenal FC - Fulham FC</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">1</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">57%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 57%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.65</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("AFC Bournemouth", "Crystal Palace FC", 1.3729946524064172, 1.3320855614973262)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Premier League</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-03 13:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">AFC Bournemouth - Crystal Palace FC</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">40%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 40%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.71</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Manchester United FC", "Liverpool FC", 1.5529411764705885, 1.4985294117647059)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Premier League</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-03 14:30</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Manchester United FC - Liverpool FC</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">40%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 40%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">3.05</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Aston Villa FC", "Tottenham Hotspur FC", 1.461764705882353, 1.2485294117647059)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Premier League</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-03 18:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Aston Villa FC - Tottenham Hotspur FC</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">42%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 42%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.71</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Chelsea FC", "Nottingham Forest FC", 1.4529411764705884, 1.2705882352941176)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Premier League</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-04 14:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Chelsea FC - Nottingham Forest FC</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">41%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 41%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.72</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Everton FC", "Manchester City FC", 1.0586898395721924, 1.563235294117647)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Premier League</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-04 19:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Everton FC - Manchester City FC</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">2</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">52%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 52%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.62</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Club Atlético de Madrid", "Arsenal FC", 1.3937500000000003, 2.325)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Champions League</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-04-29 19:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Club Atlético de Madrid - Arsenal FC</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">2</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">67%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 67%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">3.72</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Arsenal FC", "Club Atlético de Madrid", 2.425, 1.2312500000000002)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Champions League</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-05 19:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Arsenal FC - Club Atlético de Madrid</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">1</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">76%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 76%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">3.66</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("FC Bayern München", "Paris Saint-Germain FC", 2.13125, 1.7312500000000002)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Champions League</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-06 19:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">FC Bayern München - Paris Saint-Germain FC</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">49%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 49%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">3.86</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("TSG 1899 Hoffenheim", "VfB Stuttgart", 1.706451612903226, 1.7129032258064516)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Bundesliga</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-02 13:30</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">TSG 1899 Hoffenheim - VfB Stuttgart</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">40%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 40%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">3.42</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("SV Werder Bremen", "FC Augsburg", 1.4370967741935483, 1.524193548387097)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Bundesliga</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-02 13:30</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">SV Werder Bremen - FC Augsburg</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">40%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 40%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.96</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("FC Bayern München", "1. FC Heidenheim 1846", 2.9629032258064516, 1.0758064516129033)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Bundesliga</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-02 13:30</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">FC Bayern München - 1. FC Heidenheim 1846</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">1</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">95%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 95%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">4.04</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("1. FC Union Berlin", "1. FC Köln", 1.3903225806451616, 1.6290322580645162)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Bundesliga</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-02 13:30</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">1. FC Union Berlin - 1. FC Köln</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">43%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 43%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">3.02</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Eintracht Frankfurt", "Hamburger SV", 1.7193548387096775, 1.5225806451612902)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Bundesliga</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-02 13:30</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Eintracht Frankfurt - Hamburger SV</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">41%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 41%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">3.24</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Bayer 04 Leverkusen", "RB Leipzig", 1.6516129032258067, 1.6451612903225805)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Bundesliga</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-02 16:30</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Bayer 04 Leverkusen - RB Leipzig</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">40%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 40%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">3.30</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("FC St. Pauli 1910", "1. FSV Mainz 05", 1.1725806451612903, 1.506451612903226)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Bundesliga</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-03 13:30</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">FC St. Pauli 1910 - 1. FSV Mainz 05</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">46%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 46%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.68</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Borussia Mönchengladbach", "Borussia Dortmund", 1.088709677419355, 1.8306451612903225)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Bundesliga</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-03 15:30</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Borussia Mönchengladbach - Borussia Dortmund</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">2</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">60%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 60%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.92</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("SC Freiburg", "VfL Wolfsburg", 1.738709677419355, 1.517741935483871)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Bundesliga</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-03 17:30</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">SC Freiburg - VfL Wolfsburg</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">42%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 42%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">3.26</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Girona FC", "RCD Mallorca", 1.2954545454545454, 1.3924242424242426)'> 
+
+                    <td> 
+
+                        <span class="league-tag">La Liga</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-01 19:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Girona FC - RCD Mallorca</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">40%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 40%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.69</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Villarreal CF", "Levante UD", 1.6651515151515153, 1.137878787878788)'> 
+
+                    <td> 
+
+                        <span class="league-tag">La Liga</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-02 12:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Villarreal CF - Levante UD</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">1</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">53%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 53%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.80</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Valencia CF", "Club Atlético de Madrid", 1.121212121212121, 1.5636363636363637)'> 
+
+                    <td> 
+
+                        <span class="league-tag">La Liga</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-02 14:15</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Valencia CF - Club Atlético de Madrid</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">50%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 50%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.68</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Deportivo Alavés", "Athletic Club", 1.287878787878788, 1.3075757575757576)'> 
+
+                    <td> 
+
+                        <span class="league-tag">La Liga</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-02 16:30</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Deportivo Alavés - Athletic Club</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">40%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 40%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.60</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("CA Osasuna", "FC Barcelona", 1.059090909090909, 1.853030303030303)'> 
+
+                    <td> 
+
+                        <span class="league-tag">La Liga</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-02 19:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">CA Osasuna - FC Barcelona</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">2</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">62%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 62%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.91</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("RC Celta de Vigo", "Elche CF", 1.4318181818181819, 1.3166666666666667)'> 
+
+                    <td> 
+
+                        <span class="league-tag">La Liga</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-03 12:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">RC Celta de Vigo - Elche CF</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">40%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 40%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.75</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Getafe CF", "Rayo Vallecano de Madrid", 1.0257575757575759, 1.0166666666666666)'> 
+
+                    <td> 
+
+                        <span class="league-tag">La Liga</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-03 14:15</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Getafe CF - Rayo Vallecano de Madrid</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">40%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 40%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.04</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Real Betis Balompié", "Real Oviedo", 1.5121212121212122, 1.0378787878787878)'> 
+
+                    <td> 
+
+                        <span class="league-tag">La Liga</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-03 16:30</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Real Betis Balompié - Real Oviedo</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">51%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 51%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.55</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("RCD Espanyol de Barcelona", "Real Madrid CF", 1.0393939393939395, 1.7439393939393941)'> 
+
+                    <td> 
+
+                        <span class="league-tag">La Liga</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-03 19:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">RCD Espanyol de Barcelona - Real Madrid CF</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">2</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">59%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 59%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.78</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Sevilla FC", "Real Sociedad de Fútbol", 1.375757575757576, 1.625757575757576)'> 
+
+                    <td> 
+
+                        <span class="league-tag">La Liga</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-04 19:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Sevilla FC - Real Sociedad de Fútbol</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">43%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 43%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">3.00</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("AC Pisa 1909", "US Lecce", 0.9970588235294119, 1.2779411764705884)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Serie A</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-01 18:45</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">AC Pisa 1909 - US Lecce</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">44%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 44%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.28</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Udinese Calcio", "Torino FC", 1.4044117647058822, 1.2602941176470588)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Serie A</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-02 13:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Udinese Calcio - Torino FC</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">40%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 40%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.66</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Como 1907", "SSC Napoli", 1.3911764705882352, 1.1411764705882352)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Serie A</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-02 16:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Como 1907 - SSC Napoli</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">43%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 43%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.53</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Atalanta BC", "Genoa CFC", 1.3955882352941178, 1.0470588235294118)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Serie A</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-02 18:45</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Atalanta BC - Genoa CFC</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">47%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 47%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.44</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Bologna FC 1909", "Cagliari Calcio", 1.3279411764705884, 1.1397058823529411)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Serie A</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-03 10:30</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Bologna FC 1909 - Cagliari Calcio</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">41%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 41%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.47</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("US Sassuolo Calcio", "AC Milan", 1.0205882352941176, 1.3470588235294119)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Serie A</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-03 13:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">US Sassuolo Calcio - AC Milan</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">46%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 46%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.37</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("Juventus FC", "Hellas Verona FC", 1.6632352941176471, 0.7735294117647059)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Serie A</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-03 16:00</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">Juventus FC - Hellas Verona FC</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">1</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">66%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 66%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.44</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("FC Internazionale Milano", "Parma Calcio 1913", 1.823529411764706, 0.8323529411764706)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Serie A</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-03 18:45</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">FC Internazionale Milano - Parma Calcio 1913</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">1</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">69%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 69%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.66</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("US Cremonese", "SS Lazio", 0.8573529411764707, 1.3147058823529412)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Serie A</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-04 16:30</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">US Cremonese - SS Lazio</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">51%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 51%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.17</td> 
+
+                </tr> 
+
+                  
+
+                <tr class="match-row" onclick='openSim("AS Roma", "ACF Fiorentina", 1.3720588235294118, 0.9720588235294118)'> 
+
+                    <td> 
+
+                        <span class="league-tag">Serie A</span><br> 
+
+                        <span style="font-size: 0.75rem; color: #64748b">2026-05-04 18:45</span> 
+
+                    </td> 
+
+                    <td> 
+
+                        <span class="team-name">AS Roma - ACF Fiorentina</span> 
+
+                    </td> 
+
+                    <td><div class="pick-box">X</div></td> 
+
+                    <td> 
+
+                        <span style="font-weight: bold; color: #10b981">49%</span> 
+
+                        <div class="trust-bar-bg"><div class="trust-bar-fill" style="width: 49%"></div></div> 
+
+                    </td> 
+
+                    <td style="font-family: 'Orbitron'; color: #fbbf24">2.34</td> 
+
+                </tr> 
+
+                 
+
+            </tbody> 
+
+        </table> 
+
+    </div> 
+
+  
+
+    <div id="simModal" class="modal"> 
+
+        <div class="modal-content"> 
+
+            <span class="close-btn" onclick="closeSim()">&times;</span> 
+
+            <h2 id="simTeams" style="font-family: 'Orbitron'; font-size: 1.2rem;"></h2> 
+
+            <div style="font-size: 3rem; font-family: 'Orbitron'; margin: 20px 0;"> 
+
+                <span id="sH">0</span> : <span id="sV">0</span> 
+
+            </div> 
+
+            <div id="simTimer" style="color: #fbbf24; font-weight: bold; margin-bottom: 10px;">00'</div> 
+
+            <div class="pitch" id="pitch"></div> 
+
+            <button onclick="startSim()" id="simBtn" style="width: 100%; padding: 15px; background: #38bdf8; border: none; border-radius: 10px; font-weight: bold; cursor: pointer;">SZIMULÁCIÓ INDÍTÁSA</button> 
+
+        </div> 
+
+    </div> 
+
+  
+
+    <script> 
+
+        let activeMatch = null; 
+
+        let timer; 
+
+  
+
+        function openSim(h, v, xh, xv) { 
+
+            document.getElementById('simModal').style.display = 'block'; 
+
+            document.getElementById('simTeams').innerText = h + " vs " + v; 
+
+            activeMatch = {h, v, xh, xv}; 
+
+            resetSim(); 
+
+        } 
+
+  
+
+        function closeSim() { 
+
+            document.getElementById('simModal').style.display = 'none'; 
+
+            clearInterval(timer); 
+
+        } 
+
+  
+
+        function resetSim() { 
+
+            clearInterval(timer); 
+
+            document.getElementById('sH').innerText = "0"; 
+
+            document.getElementById('sV').innerText = "0"; 
+
+            document.getElementById('simTimer').innerText = "00'"; 
+
+            document.getElementById('pitch').innerHTML = ""; 
+
+            document.getElementById('simBtn').disabled = false; 
+
+        } 
+
+  
+
+        function startSim() { 
+
+            document.getElementById('simBtn').disabled = true; 
+
+            let m = 0, hS = 0, vS = 0; 
+
+            timer = setInterval(() => { 
+
+                m++; 
+
+                document.getElementById('simTimer').innerText = m + "'"; 
+
+                if(Math.random() < activeMatch.xh/90) { 
+
+                    hS++; document.getElementById('sH').innerText = hS; spawnBall('15%'); 
+
+                } 
+
+                if(Math.random() < activeMatch.xv/90) { 
+
+                    vS++; document.getElementById('sV').innerText = vS; spawnBall('65%'); 
+
+                } 
+
+                if(m >= 90) clearInterval(timer); 
+
+            }, 80); 
+
+        } 
+
+  
+
+        function spawnBall(l) { 
+
+            const b = document.createElement('div'); 
+
+            b.innerText = '⚽'; 
+
+            b.style.position = 'absolute'; 
+
+            b.style.left = (parseFloat(l) + Math.random()*20) + '%'; 
+
+            b.style.top = Math.random()*70 + 10 + '%'; 
+
+            b.style.fontSize = '20px'; 
+
+            document.getElementById('pitch').appendChild(b); 
+
+        } 
+
+    </script> 
+
+  
+
+    </body> 
+
+    </html> 
+
+    
