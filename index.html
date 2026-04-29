@@ -1,0 +1,172 @@
+import requests
+import math
+import pandas as pd
+import time
+
+# --- BEÁLLÍTÁSOK ---
+API_KEY = '8c3cb97c5df34c6daa3d8a553e6d328f'
+BASE_URL = 'https://api.football-data.org/v4/'
+HEADERS = {'X-Auth-Token': API_KEY}
+
+# A támogatott ligák listája az API kódjaikkal
+LEAGUES = ['PL', 'CL', 'BL1', 'DED', 'BSA', 'PD', 'FL1', 'ELC', 'PPL', 'SA']
+# Megjegyzés: A WC (Világbajnokság) és EC (Eb) tornák, ott nincs klasszikus 
+# hazai/vendég tabella, ezért azokat érdemesebb külön kezelni.
+
+def get_data(endpoint):
+    try:
+        response = requests.get(BASE_URL + endpoint, headers=HEADERS)
+        if response.status_code == 200:
+            return response.json()
+        elif response.status_code == 429:
+            print("Várakozás... (API limit elérve)")
+            time.sleep(60) # Ingyenes csomagnál fontos a várakozás
+            return get_data(endpoint)
+        return None
+    except Exception as e:
+        print(f"Hiba: {e}")
+        return None
+
+def calculate_probabilities(home_team, away_team, h_table, a_table):
+    try:
+        h_stats = next(item for item in h_table['table'] if item['team']['name'] == home_team)
+        a_stats = next(item for item in a_table['table'] if item['team']['name'] == away_team)
+        
+        # Statisztikák kinyerése
+        h_played, h_gf, h_ga = h_stats['playedGames'], h_stats['goalsFor'], h_stats['goalsAgainst']
+        a_played, a_gf, a_ga = a_stats['playedGames'], a_stats['goalsFor'], a_stats['goalsAgainst']
+
+        # Ha még nem játszottak meccset (szezon eleje), elkerüljük a nullával osztást
+        if h_played == 0 or a_played == 0: return None
+
+        # Várható gólok (xG)
+        exp_h = ((h_gf / h_played) + (a_ga / a_played)) / 2
+        exp_v = ((a_gf / a_played) + (h_ga / h_played)) / 2
+
+        # Poisson eloszlás 1X2-höz
+        prob_h = [ (math.exp(-exp_h) * (exp_h**i)) / math.factorial(i) for i in range(6) ]
+        prob_v = [ (math.exp(-exp_v) * (exp_v**i)) / math.factorial(i) for i in range(6) ]
+
+        win = sum(prob_h[h] * prob_v[v] for h in range(6) for v in range(6) if h > v)
+        draw = sum(prob_h[i] * prob_v[i] for i in range(6))
+        loss = sum(prob_h[h] * prob_v[v] for h in range(6) for v in range(6) if v > h)
+
+        # Gól valószínűségek
+        p00 = prob_h[0] * prob_v[0]
+        p01 = prob_h[0] * prob_v[1]
+        p10 = prob_h[1] * prob_v[0]
+        
+        o05 = (1 - p00) * 100
+        o15 = (1 - (p00 + p01 + p10)) * 100
+        o25 = o15 * 0.72 # Korrigált statisztikai szorzó a 2.5 felettire
+
+        return [win*100, draw*100, loss*100, o05, o15, o25]
+    except:
+        return None
+
+def process_all_leagues():
+    all_predictions = []
+
+    for league in LEAGUES:
+        print(f"Adatok feldolgozása: {league}...")
+        standings = get_data(f'competitions/{league}/standings')
+        matches = get_data(f'competitions/{league}/matches?status=SCHEDULED')
+
+        if not standings or not matches or 'standings' not in standings:
+            continue
+
+        # BIZTONSÁGOS KERESÉS: Ha nincs HOME/AWAY, a TOTAL-t használjuk
+        try:
+            h_table = next((s for s in standings['standings'] if s['type'] == 'HOME'), None)
+            a_table = next((s for s in standings['standings'] if s['type'] == 'AWAY'), None)
+            t_table = next((s for s in standings['standings'] if s['type'] == 'TOTAL'), None)
+
+            # Ha a specifikus táblázat hiányzik, helyettesítjük az összesítettel
+            if h_table is None: h_table = t_table
+            if a_table is None: a_table = t_table
+            
+            if h_table is None: continue # Ha még így sincs adat, kihagyjuk a ligát
+        except (StopIteration, KeyError):
+            continue
+
+        for m in matches.get('matches', [])[:10]:
+            h_name = m['homeTeam']['name']
+            v_name = m['awayTeam']['name']
+            
+            # Kiszámoljuk a tippeket
+            p = calculate_probabilities(h_name, v_name, h_table, a_table)
+            if p:
+                all_predictions.append([
+                    league, h_name, v_name, 
+                    f"{p[0]:.0f}%", f"{p[1]:.0f}%", f"{p[2]:.0f}%", 
+                    f"{p[3]:.0f}%", f"{p[4]:.0f}%", f"{p[5]:.0f}%"
+                ])
+
+    df = pd.DataFrame(all_predictions, columns=['Liga', 'Hazai', 'Vendég', '1', 'X', '2', '>0.5', '>1.5', '>2.5'])
+    return df
+
+if __name__ == "__main__":
+    result_df = process_all_leagues()
+    print("\n--- ÖSSZESÍTETT AI TIPPEK ---")
+    print(result_df.to_string(index=False))
+
+def generate_html(df):
+    html_template = """
+    <!DOCTYPE html>
+    <html lang="hu">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AI Foci Tippek</title>
+        <style>
+            body { font-family: sans-serif; background: #f0f2f5; margin: 0; padding: 20px; }
+            .container { max-width: 1000px; margin: auto; }
+            .league-card { background: white; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); overflow: hidden; }
+            .league-header { background: #1a237e; color: white; padding: 15px 20px; font-size: 1.2em; font-weight: bold; }
+            table { width: 100%; border-collapse: collapse; }
+            th { background: #f8f9fa; padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6; font-size: 0.9em; }
+            td { padding: 12px; border-bottom: 1px solid #eee; }
+            .team-col { width: 40%; font-weight: bold; }
+            .perc-col { width: 10%; color: #1a237e; font-weight: bold; }
+            .goal-col { width: 10%; color: #e65100; font-weight: bold; }
+            tr:hover { background: #f1f1f1; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>⚽ AI Futball Predikciók Dashboard</h1>
+    """
+
+    for league in df['Liga'].unique():
+        league_df = df[df['Liga'] == league]
+        html_template += f"""
+        <div class="league-card">
+            <div class="league-header">{league}</div>
+            <table>
+                <tr>
+                    <th>Mérkőzés</th>
+                    <th>1</th><th>X</th><th>2</th>
+                    <th>>1.5</th><th>>2.5</th>
+                </tr>
+        """
+        for _, row in league_df.iterrows():
+            html_template += f"""
+                <tr>
+                    <td class="team-col">{row['Hazai']} - {row['Vendég']}</td>
+                    <td class="perc-col">{row['1']}</td>
+                    <td class="perc-col">{row['X']}</td>
+                    <td class="perc-col">{row['2']}</td>
+                    <td class="goal-col">{row['>1.5']}</td>
+                    <td class="goal-col">{row['>2.5']}</td>
+                </tr>
+            """
+        html_template += "</table></div>"
+
+    html_template += "</div></body></html>"
+    
+    with open("index.html", "w", encoding="utf-8") as f:
+        f.write(html_template)
+    print("A weboldal (index.html) sikeresen elkészült!")
+
+# A main() függvény végén hívd meg:
+# generate_html(result_df)
