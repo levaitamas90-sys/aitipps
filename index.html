@@ -1,0 +1,811 @@
+
+    <!DOCTYPE html>
+    <html lang="hu">
+    <head>
+        <meta charset="UTF-8">
+        <title>GamblingAddicts - AI Analysis Board</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+            body { background: #0b0f1a; color: #fff; font-family: 'Poppins', sans-serif; margin: 0; padding: 20px; }
+            .header { text-align: center; padding: 30px; background: #161e2e; border-radius: 15px; margin-bottom: 20px; border: 1px solid #1e293b; }
+            .header h1 { margin: 0; color: #38bdf8; letter-spacing: 2px; text-transform: uppercase; font-size: 1.5rem; }
+            
+            .table-container { width: 100%; overflow-x: auto; }
+            table { width: 100%; border-collapse: collapse; background: #111827; border-radius: 12px; overflow: hidden; }
+            th { background: #1f2937; padding: 15px; text-align: center; color: #94a3b8; font-size: 0.75rem; text-transform: uppercase; }
+            td { padding: 15px; border-bottom: 1px solid #1e293b; text-align: center; font-size: 0.9rem; }
+            
+            .team-cell { text-align: left; min-width: 250px; }
+            .league-name { font-size: 0.7rem; color: #38bdf8; display: block; }
+            .vs { color: #64748b; font-size: 0.8rem; margin: 0 5px; }
+
+            /* TIPP BOXOK */
+            .best-tip { background: #fbbf24; color: #000; font-weight: 700; padding: 6px 12px; border-radius: 6px; }
+            .ou-badge { background: #374151; color: #38bdf8; padding: 4px 8px; border-radius: 4px; border: 1px solid #38bdf8; font-size: 0.8rem; }
+            
+            /* SZÁZALÉKOK */
+            .prob-box { display: flex; justify-content: center; gap: 5px; font-size: 0.8rem; }
+            .prob-val { background: #1f2937; padding: 4px 8px; border-radius: 4px; min-width: 35px; border: 1px solid #334155; }
+            
+            .btts-val { color: #10b981; font-weight: 600; }
+            
+            tr:hover { background: #161e2e; cursor: pointer; }
+
+            /* MODAL STÍLUS (A SZIMULÁTORNAK) */
+            .modal { display: none; position: fixed; z-index: 10; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(4px); }
+            .modal-content { background: #111827; margin: 10% auto; padding: 30px; border-radius: 20px; width: 450px; border: 1px solid #38bdf8; text-align: center; }
+            .pitch { width: 100%; height: 160px; background: #15803d; border-radius: 10px; position: relative; margin: 20px 0; overflow: hidden; }
+        </style>
+    </head>
+    <body>
+
+    <div class="header">
+        <h1>GamblingAddicts AI - Daily Betting Tips</h1>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Mérkőzés</th>
+                    <th>1 X 2 Esélyek</th>
+                    <th>Best Tip</th>
+                    <th>Over/Under 2.5</th>
+                    <th>BTTS (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr onclick='openSim("Leeds United FC", "Burnley FC", 1.611764705882353, 1.2750000000000001)'>
+                    <td class="team-cell">
+                        <span class="league-name">Premier League | 19:00</span>
+                        <b>Leeds United FC</b> <span class="vs">vs</span> <b>Burnley FC</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">45%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">35%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">72%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Brentford FC", "West Ham United FC", 1.5602941176470588, 1.3000000000000003)'>
+                    <td class="team-cell">
+                        <span class="league-name">Premier League | 14:00</span>
+                        <b>Brentford FC</b> <span class="vs">vs</span> <b>West Ham United FC</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">44%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">36%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">71%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Newcastle United FC", "Brighton & Hove Albion FC", 1.2602941176470588, 1.4441176470588237)'>
+                    <td class="team-cell">
+                        <span class="league-name">Premier League | 14:00</span>
+                        <b>Newcastle United FC</b> <span class="vs">vs</span> <b>Brighton & Hove Albion FC</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">37%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">43%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">67%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Wolverhampton Wanderers FC", "Sunderland AFC", 0.9838235294117648, 1.4794117647058824)'>
+                    <td class="team-cell">
+                        <span class="league-name">Premier League | 14:00</span>
+                        <b>Wolverhampton Wanderers FC</b> <span class="vs">vs</span> <b>Sunderland AFC</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">32%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">48%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">2</span></td>
+                    <td><span class="ou-badge">U2.5</span></td>
+                    <td class="btts-val">61%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Arsenal FC", "Fulham FC", 1.6441176470588237, 1.0029411764705882)'>
+                    <td class="team-cell">
+                        <span class="league-name">Premier League | 16:30</span>
+                        <b>Arsenal FC</b> <span class="vs">vs</span> <b>Fulham FC</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">50%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">30%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">1</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">66%</td>
+                </tr>
+                 
+                <tr onclick='openSim("AFC Bournemouth", "Crystal Palace FC", 1.3729946524064172, 1.3320855614973262)'>
+                    <td class="team-cell">
+                        <span class="league-name">Premier League | 13:00</span>
+                        <b>AFC Bournemouth</b> <span class="vs">vs</span> <b>Crystal Palace FC</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">41%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">39%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">67%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Manchester United FC", "Liverpool FC", 1.5529411764705885, 1.4985294117647059)'>
+                    <td class="team-cell">
+                        <span class="league-name">Premier League | 14:30</span>
+                        <b>Manchester United FC</b> <span class="vs">vs</span> <b>Liverpool FC</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">41%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">39%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">76%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Aston Villa FC", "Tottenham Hotspur FC", 1.461764705882353, 1.2485294117647059)'>
+                    <td class="team-cell">
+                        <span class="league-name">Premier League | 18:00</span>
+                        <b>Aston Villa FC</b> <span class="vs">vs</span> <b>Tottenham Hotspur FC</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">43%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">37%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">67%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Chelsea FC", "Nottingham Forest FC", 1.4529411764705884, 1.2705882352941176)'>
+                    <td class="team-cell">
+                        <span class="league-name">Premier League | 14:00</span>
+                        <b>Chelsea FC</b> <span class="vs">vs</span> <b>Nottingham Forest FC</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">43%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">37%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">68%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Everton FC", "Manchester City FC", 1.0586898395721924, 1.563235294117647)'>
+                    <td class="team-cell">
+                        <span class="league-name">Premier League | 19:00</span>
+                        <b>Everton FC</b> <span class="vs">vs</span> <b>Manchester City FC</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">32%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">48%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">2</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">65%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Club Atlético de Madrid", "Arsenal FC", 1.3937500000000003, 2.325)'>
+                    <td class="team-cell">
+                        <span class="league-name">Champions League | 19:00</span>
+                        <b>Club Atlético de Madrid</b> <span class="vs">vs</span> <b>Arsenal FC</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">30%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">50%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">2</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">90%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Arsenal FC", "Club Atlético de Madrid", 2.425, 1.2312500000000002)'>
+                    <td class="team-cell">
+                        <span class="league-name">Champions League | 19:00</span>
+                        <b>Arsenal FC</b> <span class="vs">vs</span> <b>Club Atlético de Madrid</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">53%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">27%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">1</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">90%</td>
+                </tr>
+                 
+                <tr onclick='openSim("FC Bayern München", "Paris Saint-Germain FC", 2.13125, 1.7312500000000002)'>
+                    <td class="team-cell">
+                        <span class="league-name">Champions League | 19:00</span>
+                        <b>FC Bayern München</b> <span class="vs">vs</span> <b>Paris Saint-Germain FC</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">44%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">36%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">90%</td>
+                </tr>
+                 
+                <tr onclick='openSim("TSG 1899 Hoffenheim", "VfB Stuttgart", 1.706451612903226, 1.7129032258064516)'>
+                    <td class="team-cell">
+                        <span class="league-name">Bundesliga | 13:30</span>
+                        <b>TSG 1899 Hoffenheim</b> <span class="vs">vs</span> <b>VfB Stuttgart</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">40%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">40%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">85%</td>
+                </tr>
+                 
+                <tr onclick='openSim("SV Werder Bremen", "FC Augsburg", 1.4370967741935483, 1.524193548387097)'>
+                    <td class="team-cell">
+                        <span class="league-name">Bundesliga | 13:30</span>
+                        <b>SV Werder Bremen</b> <span class="vs">vs</span> <b>FC Augsburg</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">39%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">41%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">74%</td>
+                </tr>
+                 
+                <tr onclick='openSim("FC Bayern München", "1. FC Heidenheim 1846", 2.9629032258064516, 1.0758064516129033)'>
+                    <td class="team-cell">
+                        <span class="league-name">Bundesliga | 13:30</span>
+                        <b>FC Bayern München</b> <span class="vs">vs</span> <b>1. FC Heidenheim 1846</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">59%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">21%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">1</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">90%</td>
+                </tr>
+                 
+                <tr onclick='openSim("1. FC Union Berlin", "1. FC Köln", 1.3903225806451616, 1.6290322580645162)'>
+                    <td class="team-cell">
+                        <span class="league-name">Bundesliga | 13:30</span>
+                        <b>1. FC Union Berlin</b> <span class="vs">vs</span> <b>1. FC Köln</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">37%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">43%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">75%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Eintracht Frankfurt", "Hamburger SV", 1.7193548387096775, 1.5225806451612902)'>
+                    <td class="team-cell">
+                        <span class="league-name">Bundesliga | 13:30</span>
+                        <b>Eintracht Frankfurt</b> <span class="vs">vs</span> <b>Hamburger SV</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">42%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">38%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">81%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Bayer 04 Leverkusen", "RB Leipzig", 1.6516129032258067, 1.6451612903225805)'>
+                    <td class="team-cell">
+                        <span class="league-name">Bundesliga | 16:30</span>
+                        <b>Bayer 04 Leverkusen</b> <span class="vs">vs</span> <b>RB Leipzig</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">40%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">40%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">82%</td>
+                </tr>
+                 
+                <tr onclick='openSim("FC St. Pauli 1910", "1. FSV Mainz 05", 1.1725806451612903, 1.506451612903226)'>
+                    <td class="team-cell">
+                        <span class="league-name">Bundesliga | 13:30</span>
+                        <b>FC St. Pauli 1910</b> <span class="vs">vs</span> <b>1. FSV Mainz 05</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">35%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">45%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">66%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Borussia Mönchengladbach", "Borussia Dortmund", 1.088709677419355, 1.8306451612903225)'>
+                    <td class="team-cell">
+                        <span class="league-name">Bundesliga | 15:30</span>
+                        <b>Borussia Mönchengladbach</b> <span class="vs">vs</span> <b>Borussia Dortmund</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">30%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">50%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">2</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">72%</td>
+                </tr>
+                 
+                <tr onclick='openSim("SC Freiburg", "VfL Wolfsburg", 1.738709677419355, 1.517741935483871)'>
+                    <td class="team-cell">
+                        <span class="league-name">Bundesliga | 17:30</span>
+                        <b>SC Freiburg</b> <span class="vs">vs</span> <b>VfL Wolfsburg</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">43%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">37%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">81%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Girona FC", "RCD Mallorca", 1.2954545454545454, 1.3924242424242426)'>
+                    <td class="team-cell">
+                        <span class="league-name">La Liga | 19:00</span>
+                        <b>Girona FC</b> <span class="vs">vs</span> <b>RCD Mallorca</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">39%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">41%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">67%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Villarreal CF", "Levante UD", 1.6651515151515153, 1.137878787878788)'>
+                    <td class="team-cell">
+                        <span class="league-name">La Liga | 12:00</span>
+                        <b>Villarreal CF</b> <span class="vs">vs</span> <b>Levante UD</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">48%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">32%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">1</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">70%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Valencia CF", "Club Atlético de Madrid", 1.121212121212121, 1.5636363636363637)'>
+                    <td class="team-cell">
+                        <span class="league-name">La Liga | 14:15</span>
+                        <b>Valencia CF</b> <span class="vs">vs</span> <b>Club Atlético de Madrid</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">33%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">47%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">2</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">67%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Deportivo Alavés", "Athletic Club", 1.287878787878788, 1.3075757575757576)'>
+                    <td class="team-cell">
+                        <span class="league-name">La Liga | 16:30</span>
+                        <b>Deportivo Alavés</b> <span class="vs">vs</span> <b>Athletic Club</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">40%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">40%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">64%</td>
+                </tr>
+                 
+                <tr onclick='openSim("CA Osasuna", "FC Barcelona", 1.059090909090909, 1.853030303030303)'>
+                    <td class="team-cell">
+                        <span class="league-name">La Liga | 19:00</span>
+                        <b>CA Osasuna</b> <span class="vs">vs</span> <b>FC Barcelona</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">29%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">51%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">2</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">72%</td>
+                </tr>
+                 
+                <tr onclick='openSim("RC Celta de Vigo", "Elche CF", 1.4318181818181819, 1.3166666666666667)'>
+                    <td class="team-cell">
+                        <span class="league-name">La Liga | 12:00</span>
+                        <b>RC Celta de Vigo</b> <span class="vs">vs</span> <b>Elche CF</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">42%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">38%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">68%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Getafe CF", "Rayo Vallecano de Madrid", 1.0257575757575759, 1.0166666666666666)'>
+                    <td class="team-cell">
+                        <span class="league-name">La Liga | 14:15</span>
+                        <b>Getafe CF</b> <span class="vs">vs</span> <b>Rayo Vallecano de Madrid</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">40%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">40%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">U2.5</span></td>
+                    <td class="btts-val">51%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Real Betis Balompié", "Real Oviedo", 1.5121212121212122, 1.0378787878787878)'>
+                    <td class="team-cell">
+                        <span class="league-name">La Liga | 16:30</span>
+                        <b>Real Betis Balompié</b> <span class="vs">vs</span> <b>Real Oviedo</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">47%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">33%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">1</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">63%</td>
+                </tr>
+                 
+                <tr onclick='openSim("RCD Espanyol de Barcelona", "Real Madrid CF", 1.0393939393939395, 1.7439393939393941)'>
+                    <td class="team-cell">
+                        <span class="league-name">La Liga | 19:00</span>
+                        <b>RCD Espanyol de Barcelona</b> <span class="vs">vs</span> <b>Real Madrid CF</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">30%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">50%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">2</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">69%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Sevilla FC", "Real Sociedad de Fútbol", 1.375757575757576, 1.625757575757576)'>
+                    <td class="team-cell">
+                        <span class="league-name">La Liga | 19:00</span>
+                        <b>Sevilla FC</b> <span class="vs">vs</span> <b>Real Sociedad de Fútbol</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">37%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">43%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">75%</td>
+                </tr>
+                 
+                <tr onclick='openSim("AC Pisa 1909", "US Lecce", 0.9970588235294119, 1.2779411764705884)'>
+                    <td class="team-cell">
+                        <span class="league-name">Serie A | 18:45</span>
+                        <b>AC Pisa 1909</b> <span class="vs">vs</span> <b>US Lecce</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">35%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">45%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">U2.5</span></td>
+                    <td class="btts-val">56%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Udinese Calcio", "Torino FC", 1.4044117647058822, 1.2602941176470588)'>
+                    <td class="team-cell">
+                        <span class="league-name">Serie A | 13:00</span>
+                        <b>Udinese Calcio</b> <span class="vs">vs</span> <b>Torino FC</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">42%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">38%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">66%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Como 1907", "SSC Napoli", 1.3911764705882352, 1.1411764705882352)'>
+                    <td class="team-cell">
+                        <span class="league-name">Serie A | 16:00</span>
+                        <b>Como 1907</b> <span class="vs">vs</span> <b>SSC Napoli</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">44%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">36%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">63%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Atalanta BC", "Genoa CFC", 1.3955882352941178, 1.0470588235294118)'>
+                    <td class="team-cell">
+                        <span class="league-name">Serie A | 18:45</span>
+                        <b>Atalanta BC</b> <span class="vs">vs</span> <b>Genoa CFC</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">46%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">34%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">1</span></td>
+                    <td><span class="ou-badge">U2.5</span></td>
+                    <td class="btts-val">61%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Bologna FC 1909", "Cagliari Calcio", 1.3279411764705884, 1.1397058823529411)'>
+                    <td class="team-cell">
+                        <span class="league-name">Serie A | 10:30</span>
+                        <b>Bologna FC 1909</b> <span class="vs">vs</span> <b>Cagliari Calcio</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">43%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">37%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">X</span></td>
+                    <td><span class="ou-badge">U2.5</span></td>
+                    <td class="btts-val">61%</td>
+                </tr>
+                 
+                <tr onclick='openSim("US Sassuolo Calcio", "AC Milan", 1.0205882352941176, 1.3470588235294119)'>
+                    <td class="team-cell">
+                        <span class="league-name">Serie A | 13:00</span>
+                        <b>US Sassuolo Calcio</b> <span class="vs">vs</span> <b>AC Milan</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">34%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">46%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">2</span></td>
+                    <td><span class="ou-badge">U2.5</span></td>
+                    <td class="btts-val">59%</td>
+                </tr>
+                 
+                <tr onclick='openSim("Juventus FC", "Hellas Verona FC", 1.6632352941176471, 0.7735294117647059)'>
+                    <td class="team-cell">
+                        <span class="league-name">Serie A | 16:00</span>
+                        <b>Juventus FC</b> <span class="vs">vs</span> <b>Hellas Verona FC</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">55%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">25%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">1</span></td>
+                    <td><span class="ou-badge">U2.5</span></td>
+                    <td class="btts-val">60%</td>
+                </tr>
+                 
+                <tr onclick='openSim("FC Internazionale Milano", "Parma Calcio 1913", 1.823529411764706, 0.8323529411764706)'>
+                    <td class="team-cell">
+                        <span class="league-name">Serie A | 18:45</span>
+                        <b>FC Internazionale Milano</b> <span class="vs">vs</span> <b>Parma Calcio 1913</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">55%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">25%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">1</span></td>
+                    <td><span class="ou-badge">O2.5</span></td>
+                    <td class="btts-val">66%</td>
+                </tr>
+                 
+                <tr onclick='openSim("US Cremonese", "SS Lazio", 0.8573529411764707, 1.3147058823529412)'>
+                    <td class="team-cell">
+                        <span class="league-name">Serie A | 16:30</span>
+                        <b>US Cremonese</b> <span class="vs">vs</span> <b>SS Lazio</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">32%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">48%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">2</span></td>
+                    <td><span class="ou-badge">U2.5</span></td>
+                    <td class="btts-val">54%</td>
+                </tr>
+                 
+                <tr onclick='openSim("AS Roma", "ACF Fiorentina", 1.3720588235294118, 0.9720588235294118)'>
+                    <td class="team-cell">
+                        <span class="league-name">Serie A | 18:45</span>
+                        <b>AS Roma</b> <span class="vs">vs</span> <b>ACF Fiorentina</b>
+                    </td>
+                    <td>
+                        <div class="prob-box">
+                            <div class="prob-val">47%</div>
+                            <div class="prob-val">20%</div>
+                            <div class="prob-val">33%</div>
+                        </div>
+                    </td>
+                    <td><span class="best-tip">1</span></td>
+                    <td><span class="ou-badge">U2.5</span></td>
+                    <td class="btts-val">58%</td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+
+    <div id="simModal" class="modal">
+        <div class="modal-content">
+            <h2 id="simT" style="margin-top:0"></h2>
+            <div style="font-size: 2.5rem; font-weight: bold; margin: 15px 0;"><span id="s1">0</span> - <span id="s2">0</span></div>
+            <div id="pitch" class="pitch"></div>
+            <button onclick="closeSim()" style="padding: 10px 20px; background: #374151; color: white; border: none; border-radius: 8px; cursor: pointer;">Bezárás</button>
+            <button onclick="startSim()" style="padding: 10px 20px; background: #38bdf8; color: black; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">Indítás</button>
+        </div>
+    </div>
+
+    <script>
+        let current = null;
+        let timer;
+        function openSim(h, v, xh, xv) {
+            document.getElementById('simModal').style.display = 'block';
+            document.getElementById('simT').innerText = h + " - " + v;
+            current = {xh, xv};
+            document.getElementById('s1').innerText = 0; document.getElementById('s2').innerText = 0;
+            document.getElementById('pitch').innerHTML = "";
+        }
+        function closeSim() { document.getElementById('simModal').style.display = 'none'; clearInterval(timer); }
+        function startSim() {
+            let m = 0, hG = 0, vG = 0;
+            timer = setInterval(() => {
+                m++;
+                if(Math.random() < current.xh/90) { hG++; document.getElementById('s1').innerText = hG; }
+                if(Math.random() < current.xv/90) { vG++; document.getElementById('s2').innerText = vG; }
+                if(m>=90) clearInterval(timer);
+            }, 50);
+        }
+    </script>
+
+    </body>
+    </html>
+    
