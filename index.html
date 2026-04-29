@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Futball Tipp Dashboard</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 1100px; margin: auto; }
+        h1 { text-align: center; color: #1a237e; }
+        .card { background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); margin-bottom: 30px; overflow: hidden; }
+        .league-header { background: #1a237e; color: white; padding: 15px 20px; font-size: 1.2em; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #f8f9fa; padding: 12px; text-align: center; border-bottom: 2px solid #dee2e6; font-size: 0.85em; color: #666; }
+        td { padding: 14px 12px; border-bottom: 1px solid #eee; text-align: center; }
+        .match-cell { text-align: left; font-weight: bold; width: 30%; color: #2c3e50; }
+        .prob { font-weight: bold; color: #1a237e; }
+        .goal { font-weight: bold; color: #d84315; }
+        tr:hover { background: #f9f9f9; }
+        .footer { text-align: center; margin-top: 30px; font-size: 0.85em; color: #888; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚽ AI Futball Tippközpont</h1>
+
+            <div class="card">
+                <div class="league-header">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League</div>
+                <table>
+                    <tr>
+                        <th>Mérkőzés</th>
+                        <th>Hazai (1)</th>
+                        <th>Döntetlen (X)</th>
+                        <th>Vendég (2)</th>
+                        <th>1,5 gól fölött</th>
+                        <th>2,5 gól fölött</th>
+                    </tr>
+            
+            <tr>
+                <td class="match-cell">Leeds United FC - Burnley FC</td>
+                <td class="prob">46%</td>
+                <td class="prob">24%</td>
+                <td class="prob">29%</td>
+                <td class="goal">78%</td>
+                <td class="goal">57%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Brentford FC - West Ham United FC</td>
+                <td class="prob">43%</td>
+                <td class="prob">25%</td>
+                <td class="prob">31%</td>
+                <td class="goal">78%</td>
+                <td class="goal">56%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Newcastle United FC - Brighton & Hove Albion FC</td>
+                <td class="prob">33%</td>
+                <td class="prob">26%</td>
+                <td class="prob">41%</td>
+                <td class="goal">75%</td>
+                <td class="goal">54%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Wolverhampton Wanderers FC - Sunderland AFC</td>
+                <td class="prob">27%</td>
+                <td class="prob">27%</td>
+                <td class="prob">47%</td>
+                <td class="goal">70%</td>
+                <td class="goal">51%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Arsenal FC - Fulham FC</td>
+                <td class="prob">50%</td>
+                <td class="prob">25%</td>
+                <td class="prob">24%</td>
+                <td class="goal">74%</td>
+                <td class="goal">53%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">AFC Bournemouth - Crystal Palace FC</td>
+                <td class="prob">38%</td>
+                <td class="prob">26%</td>
+                <td class="prob">36%</td>
+                <td class="goal">75%</td>
+                <td class="goal">54%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Manchester United FC - Liverpool FC</td>
+                <td class="prob">38%</td>
+                <td class="prob">24%</td>
+                <td class="prob">37%</td>
+                <td class="goal">81%</td>
+                <td class="goal">58%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Aston Villa FC - Tottenham Hotspur FC</td>
+                <td class="prob">42%</td>
+                <td class="prob">26%</td>
+                <td class="prob">32%</td>
+                <td class="goal">76%</td>
+                <td class="goal">54%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Chelsea FC - Nottingham Forest FC</td>
+                <td class="prob">41%</td>
+                <td class="prob">26%</td>
+                <td class="prob">33%</td>
+                <td class="goal">75%</td>
+                <td class="goal">54%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Everton FC - Manchester City FC</td>
+                <td class="prob">25%</td>
+                <td class="prob">25%</td>
+                <td class="prob">50%</td>
+                <td class="goal">74%</td>
+                <td class="goal">53%</td>
+            </tr>
+        </table></div>
+            <div class="card">
+                <div class="league-header">🇪🇺 Bajnokok Ligája</div>
+                <table>
+                    <tr>
+                        <th>Mérkőzés</th>
+                        <th>Hazai (1)</th>
+                        <th>Döntetlen (X)</th>
+                        <th>Vendég (2)</th>
+                        <th>1,5 gól fölött</th>
+                        <th>2,5 gól fölött</th>
+                    </tr>
+            
+            <tr>
+                <td class="match-cell">Club Atlético de Madrid - Arsenal FC</td>
+                <td class="prob">20%</td>
+                <td class="prob">19%</td>
+                <td class="prob">58%</td>
+                <td class="goal">88%</td>
+                <td class="goal">64%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Arsenal FC - Club Atlético de Madrid</td>
+                <td class="prob">58%</td>
+                <td class="prob">19%</td>
+                <td class="prob">20%</td>
+                <td class="goal">88%</td>
+                <td class="goal">64%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">FC Bayern München - Paris Saint-Germain FC</td>
+                <td class="prob">43%</td>
+                <td class="prob">21%</td>
+                <td class="prob">34%</td>
+                <td class="goal">90%</td>
+                <td class="goal">65%</td>
+            </tr>
+        </table></div>
+            <div class="card">
+                <div class="league-header">🇩🇪 Bundesliga</div>
+                <table>
+                    <tr>
+                        <th>Mérkőzés</th>
+                        <th>Hazai (1)</th>
+                        <th>Döntetlen (X)</th>
+                        <th>Vendég (2)</th>
+                        <th>1,5 gól fölött</th>
+                        <th>2,5 gól fölött</th>
+                    </tr>
+            
+            <tr>
+                <td class="match-cell">TSG 1899 Hoffenheim - VfB Stuttgart</td>
+                <td class="prob">37%</td>
+                <td class="prob">23%</td>
+                <td class="prob">39%</td>
+                <td class="goal">86%</td>
+                <td class="goal">62%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">SV Werder Bremen - FC Augsburg</td>
+                <td class="prob">37%</td>
+                <td class="prob">24%</td>
+                <td class="prob">38%</td>
+                <td class="goal">80%</td>
+                <td class="goal">57%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">FC Bayern München - 1. FC Heidenheim 1846</td>
+                <td class="prob">67%</td>
+                <td class="prob">14%</td>
+                <td class="prob">11%</td>
+                <td class="goal">91%</td>
+                <td class="goal">65%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">1. FC Union Berlin - 1. FC Köln</td>
+                <td class="prob">33%</td>
+                <td class="prob">24%</td>
+                <td class="prob">42%</td>
+                <td class="goal">81%</td>
+                <td class="goal">58%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Eintracht Frankfurt - Hamburger SV</td>
+                <td class="prob">42%</td>
+                <td class="prob">23%</td>
+                <td class="prob">33%</td>
+                <td class="goal">83%</td>
+                <td class="goal">60%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Bayer 04 Leverkusen - RB Leipzig</td>
+                <td class="prob">36%</td>
+                <td class="prob">23%</td>
+                <td class="prob">39%</td>
+                <td class="goal">84%</td>
+                <td class="goal">60%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">FC St. Pauli 1910 - 1. FSV Mainz 05</td>
+                <td class="prob">31%</td>
+                <td class="prob">26%</td>
+                <td class="prob">43%</td>
+                <td class="goal">75%</td>
+                <td class="goal">54%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Borussia Mönchengladbach - Borussia Dortmund</td>
+                <td class="prob">22%</td>
+                <td class="prob">23%</td>
+                <td class="prob">54%</td>
+                <td class="goal">79%</td>
+                <td class="goal">57%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">SC Freiburg - VfL Wolfsburg</td>
+                <td class="prob">43%</td>
+                <td class="prob">23%</td>
+                <td class="prob">32%</td>
+                <td class="goal">84%</td>
+                <td class="goal">60%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Borussia Dortmund - Eintracht Frankfurt</td>
+                <td class="prob">49%</td>
+                <td class="prob">22%</td>
+                <td class="prob">27%</td>
+                <td class="goal">85%</td>
+                <td class="goal">61%</td>
+            </tr>
+        </table></div>
+            <div class="card">
+                <div class="league-header">🇳🇱 Eredivisie</div>
+                <table>
+                    <tr>
+                        <th>Mérkőzés</th>
+                        <th>Hazai (1)</th>
+                        <th>Döntetlen (X)</th>
+                        <th>Vendég (2)</th>
+                        <th>1,5 gól fölött</th>
+                        <th>2,5 gól fölött</th>
+                    </tr>
+            
+            <tr>
+                <td class="match-cell">FC Utrecht - NAC Breda</td>
+                <td class="prob">48%</td>
+                <td class="prob">24%</td>
+                <td class="prob">26%</td>
+                <td class="goal">77%</td>
+                <td class="goal">55%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">FC Groningen - SBV Excelsior</td>
+                <td class="prob">44%</td>
+                <td class="prob">25%</td>
+                <td class="prob">31%</td>
+                <td class="goal">76%</td>
+                <td class="goal">55%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">AFC Ajax - PSV</td>
+                <td class="prob">30%</td>
+                <td class="prob">21%</td>
+                <td class="prob">46%</td>
+                <td class="goal">88%</td>
+                <td class="goal">63%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">NEC - Telstar 1963</td>
+                <td class="prob">49%</td>
+                <td class="prob">21%</td>
+                <td class="prob">28%</td>
+                <td class="goal">87%</td>
+                <td class="goal">62%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">FC Volendam - SC Heerenveen</td>
+                <td class="prob">31%</td>
+                <td class="prob">24%</td>
+                <td class="prob">45%</td>
+                <td class="goal">81%</td>
+                <td class="goal">58%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Fortuna Sittard - Feyenoord Rotterdam</td>
+                <td class="prob">27%</td>
+                <td class="prob">22%</td>
+                <td class="prob">49%</td>
+                <td class="goal">85%</td>
+                <td class="goal">61%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">PEC Zwolle - Heracles Almelo</td>
+                <td class="prob">44%</td>
+                <td class="prob">22%</td>
+                <td class="prob">32%</td>
+                <td class="goal">87%</td>
+                <td class="goal">63%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">AZ - FC Twente '65</td>
+                <td class="prob">33%</td>
+                <td class="prob">24%</td>
+                <td class="prob">42%</td>
+                <td class="goal">79%</td>
+                <td class="goal">57%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Sparta Rotterdam - Go Ahead Eagles</td>
+                <td class="prob">30%</td>
+                <td class="prob">24%</td>
+                <td class="prob">45%</td>
+                <td class="goal">80%</td>
+                <td class="goal">57%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">AFC Ajax - FC Utrecht</td>
+                <td class="prob">42%</td>
+                <td class="prob">24%</td>
+                <td class="prob">33%</td>
+                <td class="goal">80%</td>
+                <td class="goal">58%</td>
+            </tr>
+        </table></div>
+            <div class="card">
+                <div class="league-header">🇧🇷 Serie A (Brazil)</div>
+                <table>
+                    <tr>
+                        <th>Mérkőzés</th>
+                        <th>Hazai (1)</th>
+                        <th>Döntetlen (X)</th>
+                        <th>Vendég (2)</th>
+                        <th>1,5 gól fölött</th>
+                        <th>2,5 gól fölött</th>
+                    </tr>
+            
+            <tr>
+                <td class="match-cell">Botafogo FR - Clube do Remo</td>
+                <td class="prob">46%</td>
+                <td class="prob">22%</td>
+                <td class="prob">30%</td>
+                <td class="goal">85%</td>
+                <td class="goal">61%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">SE Palmeiras - Santos FC</td>
+                <td class="prob">51%</td>
+                <td class="prob">24%</td>
+                <td class="prob">24%</td>
+                <td class="goal">76%</td>
+                <td class="goal">55%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">EC Vitória - Coritiba FBC</td>
+                <td class="prob">29%</td>
+                <td class="prob">28%</td>
+                <td class="prob">43%</td>
+                <td class="goal">67%</td>
+                <td class="goal">48%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">CA Paranaense - Grêmio FBPA</td>
+                <td class="prob">42%</td>
+                <td class="prob">27%</td>
+                <td class="prob">31%</td>
+                <td class="goal">72%</td>
+                <td class="goal">52%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Cruzeiro EC - CA Mineiro</td>
+                <td class="prob">38%</td>
+                <td class="prob">26%</td>
+                <td class="prob">36%</td>
+                <td class="goal">76%</td>
+                <td class="goal">54%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">CR Flamengo - CR Vasco da Gama</td>
+                <td class="prob">51%</td>
+                <td class="prob">24%</td>
+                <td class="prob">24%</td>
+                <td class="goal">78%</td>
+                <td class="goal">56%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">São Paulo FC - EC Bahia</td>
+                <td class="prob">38%</td>
+                <td class="prob">28%</td>
+                <td class="prob">33%</td>
+                <td class="goal">68%</td>
+                <td class="goal">49%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Chapecoense AF - RB Bragantino</td>
+                <td class="prob">26%</td>
+                <td class="prob">25%</td>
+                <td class="prob">48%</td>
+                <td class="goal">74%</td>
+                <td class="goal">53%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">SC Internacional - Fluminense FC</td>
+                <td class="prob">28%</td>
+                <td class="prob">27%</td>
+                <td class="prob">45%</td>
+                <td class="goal">71%</td>
+                <td class="goal">51%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Mirassol FC - SC Corinthians Paulista</td>
+                <td class="prob">31%</td>
+                <td class="prob">30%</td>
+                <td class="prob">38%</td>
+                <td class="goal">61%</td>
+                <td class="goal">44%</td>
+            </tr>
+        </table></div>
+            <div class="card">
+                <div class="league-header">🇪🇸 La Liga</div>
+                <table>
+                    <tr>
+                        <th>Mérkőzés</th>
+                        <th>Hazai (1)</th>
+                        <th>Döntetlen (X)</th>
+                        <th>Vendég (2)</th>
+                        <th>1,5 gól fölött</th>
+                        <th>2,5 gól fölött</th>
+                    </tr>
+            
+            <tr>
+                <td class="match-cell">Girona FC - RCD Mallorca</td>
+                <td class="prob">35%</td>
+                <td class="prob">26%</td>
+                <td class="prob">38%</td>
+                <td class="goal">75%</td>
+                <td class="goal">54%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Villarreal CF - Levante UD</td>
+                <td class="prob">49%</td>
+                <td class="prob">24%</td>
+                <td class="prob">26%</td>
+                <td class="goal">77%</td>
+                <td class="goal">55%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Valencia CF - Club Atlético de Madrid</td>
+                <td class="prob">27%</td>
+                <td class="prob">25%</td>
+                <td class="prob">47%</td>
+                <td class="goal">75%</td>
+                <td class="goal">54%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Deportivo Alavés - Athletic Club</td>
+                <td class="prob">37%</td>
+                <td class="prob">26%</td>
+                <td class="prob">36%</td>
+                <td class="goal">73%</td>
+                <td class="goal">53%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">CA Osasuna - FC Barcelona</td>
+                <td class="prob">20%</td>
+                <td class="prob">22%</td>
+                <td class="prob">56%</td>
+                <td class="goal">80%</td>
+                <td class="goal">57%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">RC Celta de Vigo - Elche CF</td>
+                <td class="prob">40%</td>
+                <td class="prob">25%</td>
+                <td class="prob">34%</td>
+                <td class="goal">76%</td>
+                <td class="goal">55%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Getafe CF - Rayo Vallecano de Madrid</td>
+                <td class="prob">36%</td>
+                <td class="prob">30%</td>
+                <td class="prob">34%</td>
+                <td class="goal">61%</td>
+                <td class="goal">44%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Real Betis Balompié - Real Oviedo</td>
+                <td class="prob">48%</td>
+                <td class="prob">26%</td>
+                <td class="prob">25%</td>
+                <td class="goal">72%</td>
+                <td class="goal">52%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">RCD Espanyol de Barcelona - Real Madrid CF</td>
+                <td class="prob">22%</td>
+                <td class="prob">23%</td>
+                <td class="prob">54%</td>
+                <td class="goal">77%</td>
+                <td class="goal">55%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Sevilla FC - Real Sociedad de Fútbol</td>
+                <td class="prob">33%</td>
+                <td class="prob">24%</td>
+                <td class="prob">42%</td>
+                <td class="goal">80%</td>
+                <td class="goal">58%</td>
+            </tr>
+        </table></div>
+            <div class="card">
+                <div class="league-header">🇫🇷 Ligue 1</div>
+                <table>
+                    <tr>
+                        <th>Mérkőzés</th>
+                        <th>Hazai (1)</th>
+                        <th>Döntetlen (X)</th>
+                        <th>Vendég (2)</th>
+                        <th>1,5 gól fölött</th>
+                        <th>2,5 gól fölött</th>
+                    </tr>
+            
+            <tr>
+                <td class="match-cell">FC Nantes - Olympique de Marseille</td>
+                <td class="prob">23%</td>
+                <td class="prob">23%</td>
+                <td class="prob">53%</td>
+                <td class="goal">78%</td>
+                <td class="goal">56%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Paris Saint-Germain FC - FC Lorient</td>
+                <td class="prob">55%</td>
+                <td class="prob">22%</td>
+                <td class="prob">22%</td>
+                <td class="goal">80%</td>
+                <td class="goal">58%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">FC Metz - AS Monaco FC</td>
+                <td class="prob">24%</td>
+                <td class="prob">22%</td>
+                <td class="prob">53%</td>
+                <td class="goal">84%</td>
+                <td class="goal">60%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">OGC Nice - Racing Club de Lens</td>
+                <td class="prob">21%</td>
+                <td class="prob">22%</td>
+                <td class="prob">55%</td>
+                <td class="goal">80%</td>
+                <td class="goal">58%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Lille OSC - Le Havre AC</td>
+                <td class="prob">48%</td>
+                <td class="prob">26%</td>
+                <td class="prob">26%</td>
+                <td class="goal">71%</td>
+                <td class="goal">51%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">AJ Auxerre - Angers SCO</td>
+                <td class="prob">36%</td>
+                <td class="prob">29%</td>
+                <td class="prob">35%</td>
+                <td class="goal">65%</td>
+                <td class="goal">47%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Paris FC - Stade Brestois 29</td>
+                <td class="prob">37%</td>
+                <td class="prob">25%</td>
+                <td class="prob">37%</td>
+                <td class="goal">78%</td>
+                <td class="goal">56%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">RC Strasbourg Alsace - Toulouse FC</td>
+                <td class="prob">41%</td>
+                <td class="prob">25%</td>
+                <td class="prob">33%</td>
+                <td class="goal">78%</td>
+                <td class="goal">56%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Olympique Lyonnais - Stade Rennais FC 1901</td>
+                <td class="prob">39%</td>
+                <td class="prob">25%</td>
+                <td class="prob">36%</td>
+                <td class="goal">78%</td>
+                <td class="goal">56%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Racing Club de Lens - FC Nantes</td>
+                <td class="prob">57%</td>
+                <td class="prob">23%</td>
+                <td class="prob">19%</td>
+                <td class="goal">76%</td>
+                <td class="goal">55%</td>
+            </tr>
+        </table></div>
+            <div class="card">
+                <div class="league-header">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Championship</div>
+                <table>
+                    <tr>
+                        <th>Mérkőzés</th>
+                        <th>Hazai (1)</th>
+                        <th>Döntetlen (X)</th>
+                        <th>Vendég (2)</th>
+                        <th>1,5 gól fölött</th>
+                        <th>2,5 gól fölött</th>
+                    </tr>
+            
+            <tr>
+                <td class="match-cell">Blackburn Rovers FC - Leicester City FC</td>
+                <td class="prob">36%</td>
+                <td class="prob">27%</td>
+                <td class="prob">37%</td>
+                <td class="goal">71%</td>
+                <td class="goal">51%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Bristol City FC - Stoke City FC</td>
+                <td class="prob">36%</td>
+                <td class="prob">27%</td>
+                <td class="prob">36%</td>
+                <td class="goal">70%</td>
+                <td class="goal">51%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Derby County FC - Sheffield United FC</td>
+                <td class="prob">40%</td>
+                <td class="prob">25%</td>
+                <td class="prob">35%</td>
+                <td class="goal">77%</td>
+                <td class="goal">55%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Hull City AFC - Norwich City FC</td>
+                <td class="prob">36%</td>
+                <td class="prob">25%</td>
+                <td class="prob">38%</td>
+                <td class="goal">76%</td>
+                <td class="goal">55%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Ipswich Town FC - Queens Park Rangers FC</td>
+                <td class="prob">47%</td>
+                <td class="prob">24%</td>
+                <td class="prob">28%</td>
+                <td class="goal">77%</td>
+                <td class="goal">56%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Millwall FC - Oxford United FC</td>
+                <td class="prob">43%</td>
+                <td class="prob">28%</td>
+                <td class="prob">29%</td>
+                <td class="goal">68%</td>
+                <td class="goal">49%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Portsmouth FC - Birmingham City FC</td>
+                <td class="prob">32%</td>
+                <td class="prob">27%</td>
+                <td class="prob">40%</td>
+                <td class="goal">71%</td>
+                <td class="goal">51%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Preston North End FC - Southampton FC</td>
+                <td class="prob">30%</td>
+                <td class="prob">25%</td>
+                <td class="prob">44%</td>
+                <td class="goal">76%</td>
+                <td class="goal">55%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Sheffield Wednesday FC - West Bromwich Albion FC</td>
+                <td class="prob">23%</td>
+                <td class="prob">26%</td>
+                <td class="prob">50%</td>
+                <td class="goal">70%</td>
+                <td class="goal">50%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Swansea City AFC - Charlton Athletic FC</td>
+                <td class="prob">38%</td>
+                <td class="prob">28%</td>
+                <td class="prob">34%</td>
+                <td class="goal">68%</td>
+                <td class="goal">49%</td>
+            </tr>
+        </table></div>
+            <div class="card">
+                <div class="league-header">🇵🇹 Primeira Liga</div>
+                <table>
+                    <tr>
+                        <th>Mérkőzés</th>
+                        <th>Hazai (1)</th>
+                        <th>Döntetlen (X)</th>
+                        <th>Vendég (2)</th>
+                        <th>1,5 gól fölött</th>
+                        <th>2,5 gól fölött</th>
+                    </tr>
+            
+            <tr>
+                <td class="match-cell">Sporting Clube de Portugal - CD Tondela</td>
+                <td class="prob">68%</td>
+                <td class="prob">19%</td>
+                <td class="prob">11%</td>
+                <td class="goal">76%</td>
+                <td class="goal">55%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">CD Nacional - AVS</td>
+                <td class="prob">50%</td>
+                <td class="prob">25%</td>
+                <td class="prob">24%</td>
+                <td class="goal">74%</td>
+                <td class="goal">53%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Moreirense FC - CF Estrela da Amadora</td>
+                <td class="prob">39%</td>
+                <td class="prob">26%</td>
+                <td class="prob">35%</td>
+                <td class="goal">74%</td>
+                <td class="goal">53%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">FC Arouca - CD Santa Clara</td>
+                <td class="prob">33%</td>
+                <td class="prob">26%</td>
+                <td class="prob">41%</td>
+                <td class="goal">74%</td>
+                <td class="goal">54%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">FC Famalicão - Sport Lisboa e Benfica</td>
+                <td class="prob">24%</td>
+                <td class="prob">26%</td>
+                <td class="prob">50%</td>
+                <td class="goal">71%</td>
+                <td class="goal">51%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">FC Porto - FC Alverca</td>
+                <td class="prob">60%</td>
+                <td class="prob">23%</td>
+                <td class="prob">16%</td>
+                <td class="goal">73%</td>
+                <td class="goal">53%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Casa Pia AC - CD Tondela</td>
+                <td class="prob">38%</td>
+                <td class="prob">27%</td>
+                <td class="prob">35%</td>
+                <td class="goal">72%</td>
+                <td class="goal">52%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Sporting Clube de Braga - GD Estoril Praia</td>
+                <td class="prob">47%</td>
+                <td class="prob">23%</td>
+                <td class="prob">28%</td>
+                <td class="goal">82%</td>
+                <td class="goal">59%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Rio Ave FC - Gil Vicente FC</td>
+                <td class="prob">25%</td>
+                <td class="prob">25%</td>
+                <td class="prob">49%</td>
+                <td class="goal">74%</td>
+                <td class="goal">53%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Sporting Clube de Portugal - Vitória SC</td>
+                <td class="prob">59%</td>
+                <td class="prob">22%</td>
+                <td class="prob">18%</td>
+                <td class="goal">78%</td>
+                <td class="goal">56%</td>
+            </tr>
+        </table></div>
+            <div class="card">
+                <div class="league-header">🇮🇹 Serie A (Italy)</div>
+                <table>
+                    <tr>
+                        <th>Mérkőzés</th>
+                        <th>Hazai (1)</th>
+                        <th>Döntetlen (X)</th>
+                        <th>Vendég (2)</th>
+                        <th>1,5 gól fölött</th>
+                        <th>2,5 gól fölött</th>
+                    </tr>
+            
+            <tr>
+                <td class="match-cell">AC Pisa 1909 - US Lecce</td>
+                <td class="prob">31%</td>
+                <td class="prob">29%</td>
+                <td class="prob">40%</td>
+                <td class="goal">66%</td>
+                <td class="goal">47%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Udinese Calcio - Torino FC</td>
+                <td class="prob">41%</td>
+                <td class="prob">26%</td>
+                <td class="prob">33%</td>
+                <td class="goal">75%</td>
+                <td class="goal">54%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Como 1907 - SSC Napoli</td>
+                <td class="prob">41%</td>
+                <td class="prob">27%</td>
+                <td class="prob">32%</td>
+                <td class="goal">72%</td>
+                <td class="goal">52%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Atalanta BC - Genoa CFC</td>
+                <td class="prob">44%</td>
+                <td class="prob">27%</td>
+                <td class="prob">28%</td>
+                <td class="goal">70%</td>
+                <td class="goal">51%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Bologna FC 1909 - Cagliari Calcio</td>
+                <td class="prob">41%</td>
+                <td class="prob">27%</td>
+                <td class="prob">31%</td>
+                <td class="goal">71%</td>
+                <td class="goal">51%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">US Sassuolo Calcio - AC Milan</td>
+                <td class="prob">28%</td>
+                <td class="prob">27%</td>
+                <td class="prob">45%</td>
+                <td class="goal">68%</td>
+                <td class="goal">49%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">Juventus FC - Hellas Verona FC</td>
+                <td class="prob">58%</td>
+                <td class="prob">24%</td>
+                <td class="prob">17%</td>
+                <td class="goal">70%</td>
+                <td class="goal">50%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">FC Internazionale Milano - Parma Calcio 1913</td>
+                <td class="prob">59%</td>
+                <td class="prob">23%</td>
+                <td class="prob">17%</td>
+                <td class="goal">73%</td>
+                <td class="goal">53%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">US Cremonese - SS Lazio</td>
+                <td class="prob">25%</td>
+                <td class="prob">29%</td>
+                <td class="prob">46%</td>
+                <td class="goal">64%</td>
+                <td class="goal">46%</td>
+            </tr>
+        
+            <tr>
+                <td class="match-cell">AS Roma - ACF Fiorentina</td>
+                <td class="prob">45%</td>
+                <td class="prob">27%</td>
+                <td class="prob">27%</td>
+                <td class="goal">68%</td>
+                <td class="goal">49%</td>
+            </tr>
+        
+        </table></div>
+        <div class="footer">
+            <p>Adatok frissítve: 2026-04-29 09:03</p>
+            <p>A tippek matematikai valószínűségen alapulnak.</p>
+        </div>
+    </div>
+</body>
+</html>
