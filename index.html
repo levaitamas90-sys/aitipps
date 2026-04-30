@@ -1,0 +1,929 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+            body { background: #020617; color: #f1f5f9; font-family: 'Inter', sans-serif; padding: 20px; }
+            .container { max-width: 900px; margin: 0 auto; }
+            .brand { text-align: center; color: #38bdf8; font-weight: 900; font-size: 2.5rem; margin-bottom: 30px; }
+            .btn { width: 100%; background: #1e293b; color: white; padding: 18px; text-align: left; font-weight: 700; border: 1px solid #334155; border-radius: 12px; cursor: pointer; margin-top: 10px; display: flex; justify-content: space-between; }
+            .content { display: none; background: #0f172a; padding: 15px; border: 1px solid #1e293b; border-radius: 0 0 12px 12px; }
+            table { width: 100%; border-collapse: collapse; }
+            th { font-size: 0.65rem; color: #64748b; text-transform: uppercase; padding: 10px; border-bottom: 2px solid #1e293b; }
+            td { padding: 15px 10px; border-bottom: 1px solid #1e293b; text-align: center; font-size: 0.85rem; }
+            .team-cell { text-align: left; width: 300px; font-weight: 700; }
+            .rank { background: #38bdf8; color: #020617; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; margin-right: 5px; }
+            .gg-box { color: #a78bfa; font-weight: 900; }
+            .tip-badge { background: #fbbf24; color: #000; padding: 6px 12px; border-radius: 8px; font-weight: 900; }
+        </style>
+    </head>
+    <body>
+    <div class="container">
+        <div class="brand">GAMBLINGADDICTS <span style="color:#fbbf24">SMART AI</span></div>
+        
+            <button class="btn" onclick="toggle('PremierLeague')">
+                <span>⚽ Premier League</span>
+                <span>10 meccs ▼</span>
+            </button>
+            <div id="PremierLeague" class="content">
+                <table>
+                    <tr><th style="text-align:left">Mérkőzés</th><th>1 X 2</th><th>GG</th><th>AI TIPP</th></tr>
+                    
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">15.</span>Leeds United FC<br>
+                            <span class="rank">19.</span>Burnley FC<br>
+                            <small style="color:#64748b; font-weight:400">05.01 19:00</small>
+                        </td>
+                        <td>63% | 27% | 10%</td>
+                        <td class="gg-box">57%</td>
+                        <td><span class="tip-badge">1 (Hazai)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">9.</span>Brentford FC<br>
+                            <span class="rank">17.</span>West Ham United FC<br>
+                            <small style="color:#64748b; font-weight:400">05.02 14:00</small>
+                        </td>
+                        <td>59% | 27% | 14%</td>
+                        <td class="gg-box">67%</td>
+                        <td><span class="tip-badge">1X</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">14.</span>Newcastle United FC<br>
+                            <span class="rank">6.</span>Brighton & Hove Albion FC<br>
+                            <small style="color:#64748b; font-weight:400">05.02 14:00</small>
+                        </td>
+                        <td>32% | 27% | 41%</td>
+                        <td class="gg-box">69%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">20.</span>Wolverhampton Wanderers FC<br>
+                            <span class="rank">12.</span>Sunderland AFC<br>
+                            <small style="color:#64748b; font-weight:400">05.02 14:00</small>
+                        </td>
+                        <td>15% | 27% | 58%</td>
+                        <td class="gg-box">44%</td>
+                        <td><span class="tip-badge">X2 vagy GG</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">1.</span>Arsenal FC<br>
+                            <span class="rank">10.</span>Fulham FC<br>
+                            <small style="color:#64748b; font-weight:400">05.02 16:30</small>
+                        </td>
+                        <td>70% | 20% | 10%</td>
+                        <td class="gg-box">79%</td>
+                        <td><span class="tip-badge">1 (Hazai)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">7.</span>AFC Bournemouth<br>
+                            <span class="rank">13.</span>Crystal Palace FC<br>
+                            <small style="color:#64748b; font-weight:400">05.03 13:00</small>
+                        </td>
+                        <td>53% | 27% | 20%</td>
+                        <td class="gg-box">66%</td>
+                        <td><span class="tip-badge">1X</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">3.</span>Manchester United FC<br>
+                            <span class="rank">4.</span>Liverpool FC<br>
+                            <small style="color:#64748b; font-weight:400">05.03 14:30</small>
+                        </td>
+                        <td>47% | 27% | 26%</td>
+                        <td class="gg-box">86%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">5.</span>Aston Villa FC<br>
+                            <span class="rank">18.</span>Tottenham Hotspur FC<br>
+                            <small style="color:#64748b; font-weight:400">05.03 18:00</small>
+                        </td>
+                        <td>72% | 18% | 10%</td>
+                        <td class="gg-box">66%</td>
+                        <td><span class="tip-badge">1 (Hazai)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">8.</span>Chelsea FC<br>
+                            <span class="rank">16.</span>Nottingham Forest FC<br>
+                            <small style="color:#64748b; font-weight:400">05.04 14:00</small>
+                        </td>
+                        <td>57% | 27% | 16%</td>
+                        <td class="gg-box">69%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">11.</span>Everton FC<br>
+                            <span class="rank">2.</span>Manchester City FC<br>
+                            <small style="color:#64748b; font-weight:400">05.04 19:00</small>
+                        </td>
+                        <td>19% | 27% | 54%</td>
+                        <td class="gg-box">80%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr>
+                </table>
+            </div>
+         
+            <button class="btn" onclick="toggle('LaLiga')">
+                <span>⚽ La Liga</span>
+                <span>10 meccs ▼</span>
+            </button>
+            <div id="LaLiga" class="content">
+                <table>
+                    <tr><th style="text-align:left">Mérkőzés</th><th>1 X 2</th><th>GG</th><th>AI TIPP</th></tr>
+                    
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">15.</span>Girona FC<br>
+                            <span class="rank">17.</span>RCD Mallorca<br>
+                            <small style="color:#64748b; font-weight:400">05.01 19:00</small>
+                        </td>
+                        <td>48% | 27% | 25%</td>
+                        <td class="gg-box">58%</td>
+                        <td><span class="tip-badge">X2 vagy GG</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">3.</span>Villarreal CF<br>
+                            <span class="rank">19.</span>Levante UD<br>
+                            <small style="color:#64748b; font-weight:400">05.02 12:00</small>
+                        </td>
+                        <td>81% | 9% | 10%</td>
+                        <td class="gg-box">73%</td>
+                        <td><span class="tip-badge">1 (Hazai)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">12.</span>Valencia CF<br>
+                            <span class="rank">4.</span>Club Atlético de Madrid<br>
+                            <small style="color:#64748b; font-weight:400">05.02 14:15</small>
+                        </td>
+                        <td>22% | 27% | 51%</td>
+                        <td class="gg-box">70%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">16.</span>Deportivo Alavés<br>
+                            <span class="rank">10.</span>Athletic Club<br>
+                            <small style="color:#64748b; font-weight:400">05.02 16:30</small>
+                        </td>
+                        <td>36% | 27% | 37%</td>
+                        <td class="gg-box">56%</td>
+                        <td><span class="tip-badge">X2 vagy GG</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">9.</span>CA Osasuna<br>
+                            <span class="rank">1.</span>FC Barcelona<br>
+                            <small style="color:#64748b; font-weight:400">05.02 19:00</small>
+                        </td>
+                        <td>10% | 21% | 69%</td>
+                        <td class="gg-box">92%</td>
+                        <td><span class="tip-badge">2 (Vendég)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">7.</span>RC Celta de Vigo<br>
+                            <span class="rank">14.</span>Elche CF<br>
+                            <small style="color:#64748b; font-weight:400">05.03 12:00</small>
+                        </td>
+                        <td>54% | 27% | 19%</td>
+                        <td class="gg-box">67%</td>
+                        <td><span class="tip-badge">1X</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">6.</span>Getafe CF<br>
+                            <span class="rank">11.</span>Rayo Vallecano de Madrid<br>
+                            <small style="color:#64748b; font-weight:400">05.03 14:15</small>
+                        </td>
+                        <td>52% | 27% | 22%</td>
+                        <td class="gg-box">46%</td>
+                        <td><span class="tip-badge">1X</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">5.</span>Real Betis Balompié<br>
+                            <span class="rank">20.</span>Real Oviedo<br>
+                            <small style="color:#64748b; font-weight:400">05.03 16:30</small>
+                        </td>
+                        <td>72% | 18% | 10%</td>
+                        <td class="gg-box">57%</td>
+                        <td><span class="tip-badge">1 (Hazai)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">13.</span>RCD Espanyol de Barcelona<br>
+                            <span class="rank">2.</span>Real Madrid CF<br>
+                            <small style="color:#64748b; font-weight:400">05.03 19:00</small>
+                        </td>
+                        <td>10% | 25% | 65%</td>
+                        <td class="gg-box">80%</td>
+                        <td><span class="tip-badge">2 (Vendég)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">18.</span>Sevilla FC<br>
+                            <span class="rank">8.</span>Real Sociedad de Fútbol<br>
+                            <small style="color:#64748b; font-weight:400">05.04 19:00</small>
+                        </td>
+                        <td>30% | 27% | 43%</td>
+                        <td class="gg-box">70%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr>
+                </table>
+            </div>
+         
+            <button class="btn" onclick="toggle('SerieA')">
+                <span>⚽ Serie A</span>
+                <span>10 meccs ▼</span>
+            </button>
+            <div id="SerieA" class="content">
+                <table>
+                    <tr><th style="text-align:left">Mérkőzés</th><th>1 X 2</th><th>GG</th><th>AI TIPP</th></tr>
+                    
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">20.</span>AC Pisa 1909<br>
+                            <span class="rank">17.</span>US Lecce<br>
+                            <small style="color:#64748b; font-weight:400">05.01 18:45</small>
+                        </td>
+                        <td>33% | 27% | 40%</td>
+                        <td class="gg-box">34%</td>
+                        <td><span class="tip-badge">X2 vagy GG</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">11.</span>Udinese Calcio<br>
+                            <span class="rank">13.</span>Torino FC<br>
+                            <small style="color:#64748b; font-weight:400">05.02 13:00</small>
+                        </td>
+                        <td>48% | 27% | 25%</td>
+                        <td class="gg-box">59%</td>
+                        <td><span class="tip-badge">X2 vagy GG</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">5.</span>Como 1907<br>
+                            <span class="rank">2.</span>SSC Napoli<br>
+                            <small style="color:#64748b; font-weight:400">05.02 16:00</small>
+                        </td>
+                        <td>36% | 27% | 38%</td>
+                        <td class="gg-box">82%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">7.</span>Atalanta BC<br>
+                            <span class="rank">14.</span>Genoa CFC<br>
+                            <small style="color:#64748b; font-weight:400">05.02 18:45</small>
+                        </td>
+                        <td>61% | 27% | 12%</td>
+                        <td class="gg-box">64%</td>
+                        <td><span class="tip-badge">1X</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">9.</span>Bologna FC 1909<br>
+                            <span class="rank">16.</span>Cagliari Calcio<br>
+                            <small style="color:#64748b; font-weight:400">05.03 10:30</small>
+                        </td>
+                        <td>58% | 27% | 14%</td>
+                        <td class="gg-box">57%</td>
+                        <td><span class="tip-badge">1X</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">10.</span>US Sassuolo Calcio<br>
+                            <span class="rank">3.</span>AC Milan<br>
+                            <small style="color:#64748b; font-weight:400">05.03 13:00</small>
+                        </td>
+                        <td>22% | 27% | 51%</td>
+                        <td class="gg-box">65%</td>
+                        <td><span class="tip-badge">X2 vagy GG</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">4.</span>Juventus FC<br>
+                            <span class="rank">19.</span>Hellas Verona FC<br>
+                            <small style="color:#64748b; font-weight:400">05.03 16:00</small>
+                        </td>
+                        <td>88% | 2% | 10%</td>
+                        <td class="gg-box">59%</td>
+                        <td><span class="tip-badge">1 (Hazai)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">1.</span>FC Internazionale Milano<br>
+                            <span class="rank">12.</span>Parma Calcio 1913<br>
+                            <small style="color:#64748b; font-weight:400">05.03 18:45</small>
+                        </td>
+                        <td>81% | 9% | 10%</td>
+                        <td class="gg-box">77%</td>
+                        <td><span class="tip-badge">1 (Hazai)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">18.</span>US Cremonese<br>
+                            <span class="rank">8.</span>SS Lazio<br>
+                            <small style="color:#64748b; font-weight:400">05.04 16:30</small>
+                        </td>
+                        <td>21% | 27% | 52%</td>
+                        <td class="gg-box">46%</td>
+                        <td><span class="tip-badge">X2 vagy GG</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">6.</span>AS Roma<br>
+                            <span class="rank">15.</span>ACF Fiorentina<br>
+                            <small style="color:#64748b; font-weight:400">05.04 18:45</small>
+                        </td>
+                        <td>70% | 20% | 10%</td>
+                        <td class="gg-box">63%</td>
+                        <td><span class="tip-badge">1 (Hazai)</span></td>
+                    </tr>
+                </table>
+            </div>
+         
+            <button class="btn" onclick="toggle('Bundesliga')">
+                <span>⚽ Bundesliga</span>
+                <span>9 meccs ▼</span>
+            </button>
+            <div id="Bundesliga" class="content">
+                <table>
+                    <tr><th style="text-align:left">Mérkőzés</th><th>1 X 2</th><th>GG</th><th>AI TIPP</th></tr>
+                    
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">5.</span>TSG 1899 Hoffenheim<br>
+                            <span class="rank">4.</span>VfB Stuttgart<br>
+                            <small style="color:#64748b; font-weight:400">05.02 13:30</small>
+                        </td>
+                        <td>43% | 27% | 30%</td>
+                        <td class="gg-box">92%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">12.</span>SV Werder Bremen<br>
+                            <span class="rank">9.</span>FC Augsburg<br>
+                            <small style="color:#64748b; font-weight:400">05.02 13:30</small>
+                        </td>
+                        <td>38% | 27% | 35%</td>
+                        <td class="gg-box">60%</td>
+                        <td><span class="tip-badge">X2 vagy GG</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">1.</span>FC Bayern München<br>
+                            <span class="rank">18.</span>1. FC Heidenheim 1846<br>
+                            <small style="color:#64748b; font-weight:400">05.02 13:30</small>
+                        </td>
+                        <td>88% | 2% | 10%</td>
+                        <td class="gg-box">92%</td>
+                        <td><span class="tip-badge">1 (Hazai)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">13.</span>1. FC Union Berlin<br>
+                            <span class="rank">14.</span>1. FC Köln<br>
+                            <small style="color:#64748b; font-weight:400">05.02 13:30</small>
+                        </td>
+                        <td>46% | 27% | 28%</td>
+                        <td class="gg-box">65%</td>
+                        <td><span class="tip-badge">X2 vagy GG</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">7.</span>Eintracht Frankfurt<br>
+                            <span class="rank">15.</span>Hamburger SV<br>
+                            <small style="color:#64748b; font-weight:400">05.02 13:30</small>
+                        </td>
+                        <td>59% | 27% | 14%</td>
+                        <td class="gg-box">73%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">6.</span>Bayer 04 Leverkusen<br>
+                            <span class="rank">3.</span>RB Leipzig<br>
+                            <small style="color:#64748b; font-weight:400">05.02 16:30</small>
+                        </td>
+                        <td>36% | 27% | 37%</td>
+                        <td class="gg-box">92%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">16.</span>FC St. Pauli 1910<br>
+                            <span class="rank">10.</span>1. FSV Mainz 05<br>
+                            <small style="color:#64748b; font-weight:400">05.03 13:30</small>
+                        </td>
+                        <td>33% | 27% | 40%</td>
+                        <td class="gg-box">52%</td>
+                        <td><span class="tip-badge">X2 vagy GG</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">11.</span>Borussia Mönchengladbach<br>
+                            <span class="rank">2.</span>Borussia Dortmund<br>
+                            <small style="color:#64748b; font-weight:400">05.03 15:30</small>
+                        </td>
+                        <td>10% | 27% | 63%</td>
+                        <td class="gg-box">81%</td>
+                        <td><span class="tip-badge">2 (Vendég)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">8.</span>SC Freiburg<br>
+                            <span class="rank">17.</span>VfL Wolfsburg<br>
+                            <small style="color:#64748b; font-weight:400">05.03 17:30</small>
+                        </td>
+                        <td>65% | 25% | 10%</td>
+                        <td class="gg-box">69%</td>
+                        <td><span class="tip-badge">1 (Hazai)</span></td>
+                    </tr>
+                </table>
+            </div>
+         
+            <button class="btn" onclick="toggle('Ligue1')">
+                <span>⚽ Ligue 1</span>
+                <span>9 meccs ▼</span>
+            </button>
+            <div id="Ligue1" class="content">
+                <table>
+                    <tr><th style="text-align:left">Mérkőzés</th><th>1 X 2</th><th>GG</th><th>AI TIPP</th></tr>
+                    
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">17.</span>FC Nantes<br>
+                            <span class="rank">6.</span>Olympique de Marseille<br>
+                            <small style="color:#64748b; font-weight:400">05.02 13:00</small>
+                        </td>
+                        <td>10% | 27% | 63%</td>
+                        <td class="gg-box">69%</td>
+                        <td><span class="tip-badge">2 (Vendég)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">1.</span>Paris Saint-Germain FC<br>
+                            <span class="rank">9.</span>FC Lorient<br>
+                            <small style="color:#64748b; font-weight:400">05.02 15:00</small>
+                        </td>
+                        <td>72% | 18% | 10%</td>
+                        <td class="gg-box">91%</td>
+                        <td><span class="tip-badge">1 (Hazai)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">18.</span>FC Metz<br>
+                            <span class="rank">7.</span>AS Monaco FC<br>
+                            <small style="color:#64748b; font-weight:400">05.02 17:00</small>
+                        </td>
+                        <td>10% | 25% | 65%</td>
+                        <td class="gg-box">69%</td>
+                        <td><span class="tip-badge">2 (Vendég)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">15.</span>OGC Nice<br>
+                            <span class="rank">2.</span>Racing Club de Lens<br>
+                            <small style="color:#64748b; font-weight:400">05.02 19:05</small>
+                        </td>
+                        <td>10% | 26% | 64%</td>
+                        <td class="gg-box">78%</td>
+                        <td><span class="tip-badge">2 (Vendég)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">3.</span>Lille OSC<br>
+                            <span class="rank">14.</span>Le Havre AC<br>
+                            <small style="color:#64748b; font-weight:400">05.03 13:00</small>
+                        </td>
+                        <td>72% | 18% | 10%</td>
+                        <td class="gg-box">64%</td>
+                        <td><span class="tip-badge">1 (Hazai)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">16.</span>AJ Auxerre<br>
+                            <span class="rank">13.</span>Angers SCO<br>
+                            <small style="color:#64748b; font-weight:400">05.03 15:15</small>
+                        </td>
+                        <td>35% | 27% | 38%</td>
+                        <td class="gg-box">43%</td>
+                        <td><span class="tip-badge">X2 vagy GG</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">12.</span>Paris FC<br>
+                            <span class="rank">11.</span>Stade Brestois 29<br>
+                            <small style="color:#64748b; font-weight:400">05.03 15:15</small>
+                        </td>
+                        <td>43% | 27% | 30%</td>
+                        <td class="gg-box">66%</td>
+                        <td><span class="tip-badge">X2 vagy GG</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">8.</span>RC Strasbourg Alsace<br>
+                            <span class="rank">10.</span>Toulouse FC<br>
+                            <small style="color:#64748b; font-weight:400">05.03 15:15</small>
+                        </td>
+                        <td>52% | 27% | 21%</td>
+                        <td class="gg-box">76%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">4.</span>Olympique Lyonnais<br>
+                            <span class="rank">5.</span>Stade Rennais FC 1901<br>
+                            <small style="color:#64748b; font-weight:400">05.03 18:45</small>
+                        </td>
+                        <td>46% | 27% | 28%</td>
+                        <td class="gg-box">82%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr>
+                </table>
+            </div>
+         
+            <button class="btn" onclick="toggle('Eredivisie')">
+                <span>⚽ Eredivisie</span>
+                <span>9 meccs ▼</span>
+            </button>
+            <div id="Eredivisie" class="content">
+                <table>
+                    <tr><th style="text-align:left">Mérkőzés</th><th>1 X 2</th><th>GG</th><th>AI TIPP</th></tr>
+                    
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">8.</span>FC Utrecht<br>
+                            <span class="rank">17.</span>NAC Breda<br>
+                            <small style="color:#64748b; font-weight:400">05.02 14:30</small>
+                        </td>
+                        <td>66% | 24% | 10%</td>
+                        <td class="gg-box">64%</td>
+                        <td><span class="tip-badge">1 (Hazai)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">9.</span>FC Groningen<br>
+                            <span class="rank">14.</span>SBV Excelsior<br>
+                            <small style="color:#64748b; font-weight:400">05.02 16:45</small>
+                        </td>
+                        <td>56% | 27% | 17%</td>
+                        <td class="gg-box">64%</td>
+                        <td><span class="tip-badge">1X</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">4.</span>AFC Ajax<br>
+                            <span class="rank">1.</span>PSV<br>
+                            <small style="color:#64748b; font-weight:400">05.02 18:00</small>
+                        </td>
+                        <td>24% | 27% | 50%</td>
+                        <td class="gg-box">92%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">3.</span>NEC<br>
+                            <span class="rank">16.</span>Telstar 1963<br>
+                            <small style="color:#64748b; font-weight:400">05.02 19:00</small>
+                        </td>
+                        <td>73% | 17% | 10%</td>
+                        <td class="gg-box">92%</td>
+                        <td><span class="tip-badge">1 (Hazai)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">15.</span>FC Volendam<br>
+                            <span class="rank">7.</span>SC Heerenveen<br>
+                            <small style="color:#64748b; font-weight:400">05.03 10:15</small>
+                        </td>
+                        <td>26% | 27% | 47%</td>
+                        <td class="gg-box">71%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">12.</span>Fortuna Sittard<br>
+                            <span class="rank">2.</span>Feyenoord Rotterdam<br>
+                            <small style="color:#64748b; font-weight:400">05.03 12:30</small>
+                        </td>
+                        <td>19% | 27% | 54%</td>
+                        <td class="gg-box">89%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">13.</span>PEC Zwolle<br>
+                            <span class="rank">18.</span>Heracles Almelo<br>
+                            <small style="color:#64748b; font-weight:400">05.03 12:30</small>
+                        </td>
+                        <td>60% | 27% | 14%</td>
+                        <td class="gg-box">60%</td>
+                        <td><span class="tip-badge">1X</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">6.</span>AZ<br>
+                            <span class="rank">5.</span>FC Twente '65<br>
+                            <small style="color:#64748b; font-weight:400">05.03 14:45</small>
+                        </td>
+                        <td>39% | 27% | 34%</td>
+                        <td class="gg-box">84%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">10.</span>Sparta Rotterdam<br>
+                            <span class="rank">11.</span>Go Ahead Eagles<br>
+                            <small style="color:#64748b; font-weight:400">05.03 14:45</small>
+                        </td>
+                        <td>49% | 27% | 24%</td>
+                        <td class="gg-box">69%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr>
+                </table>
+            </div>
+         
+            <button class="btn" onclick="toggle('PrimeiraLiga')">
+                <span>⚽ Primeira Liga</span>
+                <span>9 meccs ▼</span>
+            </button>
+            <div id="PrimeiraLiga" class="content">
+                <table>
+                    <tr><th style="text-align:left">Mérkőzés</th><th>1 X 2</th><th>GG</th><th>AI TIPP</th></tr>
+                    
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">14.</span>CD Nacional<br>
+                            <span class="rank">18.</span>AVS<br>
+                            <small style="color:#64748b; font-weight:400">05.02 14:30</small>
+                        </td>
+                        <td>60% | 27% | 13%</td>
+                        <td class="gg-box">45%</td>
+                        <td><span class="tip-badge">1X</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">8.</span>Moreirense FC<br>
+                            <span class="rank">15.</span>CF Estrela da Amadora<br>
+                            <small style="color:#64748b; font-weight:400">05.02 14:30</small>
+                        </td>
+                        <td>58% | 27% | 15%</td>
+                        <td class="gg-box">55%</td>
+                        <td><span class="tip-badge">1X</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">11.</span>FC Arouca<br>
+                            <span class="rank">13.</span>CD Santa Clara<br>
+                            <small style="color:#64748b; font-weight:400">05.02 14:30</small>
+                        </td>
+                        <td>48% | 27% | 25%</td>
+                        <td class="gg-box">54%</td>
+                        <td><span class="tip-badge">X2 vagy GG</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">5.</span>FC Famalicão<br>
+                            <span class="rank">2.</span>Sport Lisboa e Benfica<br>
+                            <small style="color:#64748b; font-weight:400">05.02 17:00</small>
+                        </td>
+                        <td>23% | 27% | 50%</td>
+                        <td class="gg-box">85%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">1.</span>FC Porto<br>
+                            <span class="rank">9.</span>FC Alverca<br>
+                            <small style="color:#64748b; font-weight:400">05.02 19:30</small>
+                        </td>
+                        <td>85% | 5% | 10%</td>
+                        <td class="gg-box">78%</td>
+                        <td><span class="tip-badge">1 (Hazai)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">16.</span>Casa Pia AC<br>
+                            <span class="rank">17.</span>CD Tondela<br>
+                            <small style="color:#64748b; font-weight:400">05.03 14:30</small>
+                        </td>
+                        <td>48% | 27% | 25%</td>
+                        <td class="gg-box">42%</td>
+                        <td><span class="tip-badge">X2 vagy GG</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">4.</span>Sporting Clube de Braga<br>
+                            <span class="rank">10.</span>GD Estoril Praia<br>
+                            <small style="color:#64748b; font-weight:400">05.03 17:00</small>
+                        </td>
+                        <td>63% | 27% | 10%</td>
+                        <td class="gg-box">89%</td>
+                        <td><span class="tip-badge">1 (Hazai)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">12.</span>Rio Ave FC<br>
+                            <span class="rank">6.</span>Gil Vicente FC<br>
+                            <small style="color:#64748b; font-weight:400">05.03 19:30</small>
+                        </td>
+                        <td>28% | 27% | 45%</td>
+                        <td class="gg-box">64%</td>
+                        <td><span class="tip-badge">X2 vagy GG</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">3.</span>Sporting Clube de Portugal<br>
+                            <span class="rank">7.</span>Vitória SC<br>
+                            <small style="color:#64748b; font-weight:400">05.04 19:15</small>
+                        </td>
+                        <td>72% | 18% | 10%</td>
+                        <td class="gg-box">92%</td>
+                        <td><span class="tip-badge">1 (Hazai)</span></td>
+                    </tr>
+                </table>
+            </div>
+         
+            <button class="btn" onclick="toggle('Championship')">
+                <span>⚽ Championship</span>
+                <span>12 meccs ▼</span>
+            </button>
+            <div id="Championship" class="content">
+                <table>
+                    <tr><th style="text-align:left">Mérkőzés</th><th>1 X 2</th><th>GG</th><th>AI TIPP</th></tr>
+                    
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">20.</span>Blackburn Rovers FC<br>
+                            <span class="rank">23.</span>Leicester City FC<br>
+                            <small style="color:#64748b; font-weight:400">05.02 11:30</small>
+                        </td>
+                        <td>53% | 27% | 20%</td>
+                        <td class="gg-box">55%</td>
+                        <td><span class="tip-badge">1X</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">13.</span>Bristol City FC<br>
+                            <span class="rank">17.</span>Stoke City FC<br>
+                            <small style="color:#64748b; font-weight:400">05.02 11:30</small>
+                        </td>
+                        <td>50% | 27% | 23%</td>
+                        <td class="gg-box">60%</td>
+                        <td><span class="tip-badge">1X</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">8.</span>Derby County FC<br>
+                            <span class="rank">15.</span>Sheffield United FC<br>
+                            <small style="color:#64748b; font-weight:400">05.02 11:30</small>
+                        </td>
+                        <td>58% | 27% | 14%</td>
+                        <td class="gg-box">72%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">7.</span>Hull City AFC<br>
+                            <span class="rank">9.</span>Norwich City FC<br>
+                            <small style="color:#64748b; font-weight:400">05.02 11:30</small>
+                        </td>
+                        <td>49% | 27% | 24%</td>
+                        <td class="gg-box">72%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">2.</span>Ipswich Town FC<br>
+                            <span class="rank">14.</span>Queens Park Rangers FC<br>
+                            <small style="color:#64748b; font-weight:400">05.02 11:30</small>
+                        </td>
+                        <td>71% | 19% | 10%</td>
+                        <td class="gg-box">77%</td>
+                        <td><span class="tip-badge">1 (Hazai)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">3.</span>Millwall FC<br>
+                            <span class="rank">22.</span>Oxford United FC<br>
+                            <small style="color:#64748b; font-weight:400">05.02 11:30</small>
+                        </td>
+                        <td>84% | 6% | 10%</td>
+                        <td class="gg-box">59%</td>
+                        <td><span class="tip-badge">1 (Hazai)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">18.</span>Portsmouth FC<br>
+                            <span class="rank">10.</span>Birmingham City FC<br>
+                            <small style="color:#64748b; font-weight:400">05.02 11:30</small>
+                        </td>
+                        <td>31% | 27% | 42%</td>
+                        <td class="gg-box">58%</td>
+                        <td><span class="tip-badge">X2 vagy GG</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">12.</span>Preston North End FC<br>
+                            <span class="rank">5.</span>Southampton FC<br>
+                            <small style="color:#64748b; font-weight:400">05.02 11:30</small>
+                        </td>
+                        <td>26% | 27% | 48%</td>
+                        <td class="gg-box">74%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">24.</span>Sheffield Wednesday FC<br>
+                            <span class="rank">21.</span>West Bromwich Albion FC<br>
+                            <small style="color:#64748b; font-weight:400">05.02 11:30</small>
+                        </td>
+                        <td>10% | 16% | 74%</td>
+                        <td class="gg-box">41%</td>
+                        <td><span class="tip-badge">2 (Vendég)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">11.</span>Swansea City AFC<br>
+                            <span class="rank">19.</span>Charlton Athletic FC<br>
+                            <small style="color:#64748b; font-weight:400">05.02 11:30</small>
+                        </td>
+                        <td>56% | 27% | 17%</td>
+                        <td class="gg-box">54%</td>
+                        <td><span class="tip-badge">1X</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">16.</span>Watford FC<br>
+                            <span class="rank">1.</span>Coventry City FC<br>
+                            <small style="color:#64748b; font-weight:400">05.02 11:30</small>
+                        </td>
+                        <td>10% | 22% | 68%</td>
+                        <td class="gg-box">81%</td>
+                        <td><span class="tip-badge">2 (Vendég)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">6.</span>Wrexham AFC<br>
+                            <span class="rank">4.</span>Middlesbrough FC<br>
+                            <small style="color:#64748b; font-weight:400">05.02 11:30</small>
+                        </td>
+                        <td>35% | 27% | 38%</td>
+                        <td class="gg-box">76%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr>
+                </table>
+            </div>
+         
+            <button class="btn" onclick="toggle('ChampionsLeague')">
+                <span>⚽ Champions League</span>
+                <span>2 meccs ▼</span>
+            </button>
+            <div id="ChampionsLeague" class="content">
+                <table>
+                    <tr><th style="text-align:left">Mérkőzés</th><th>1 X 2</th><th>GG</th><th>AI TIPP</th></tr>
+                    
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">1.</span>Arsenal FC<br>
+                            <span class="rank">14.</span>Club Atlético de Madrid<br>
+                            <small style="color:#64748b; font-weight:400">05.05 19:00</small>
+                        </td>
+                        <td>62% | 27% | 11%</td>
+                        <td class="gg-box">92%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr> 
+                    <tr>
+                        <td class="team-cell">
+                            <span class="rank">2.</span>FC Bayern München<br>
+                            <span class="rank">11.</span>Paris Saint-Germain FC<br>
+                            <small style="color:#64748b; font-weight:400">05.06 19:00</small>
+                        </td>
+                        <td>56% | 27% | 17%</td>
+                        <td class="gg-box">92%</td>
+                        <td><span class="tip-badge">GG (Igen)</span></td>
+                    </tr>
+                </table>
+            </div>
+        
+    </div>
+    <script>function toggle(id) { var x = document.getElementById(id); x.style.display = (x.style.display === "block") ? "none" : "block"; }</script>
+    </body>
+    </html>
+    
