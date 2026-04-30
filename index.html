@@ -1,0 +1,173 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+            body { background: #020617; color: #f1f5f9; font-family: 'Inter', sans-serif; padding: 20px; }
+            .wrapper { max-width: 850px; margin: 0 auto; }
+            .brand { text-align: center; color: #38bdf8; font-weight: 900; font-size: 2rem; margin-bottom: 30px; }
+            
+            /* VB kiemelt stílus */
+            .wc-main-btn { width: 100%; background: linear-gradient(90deg, #1e40af, #3b82f6); color: white; padding: 20px; 
+                           font-size: 1.2rem; font-weight: 900; border: none; border-radius: 12px; cursor: pointer; margin-bottom: 10px; }
+            .wc-container { display: none; background: #0f172a; padding: 10px; border-radius: 12px; border: 2px solid #1e40af; margin-bottom: 30px; }
+            
+            /* Általános gombok */
+            .btn { width: 100%; background: #1e293b; color: white; padding: 15px; text-align: left; 
+                    font-weight: 700; border: 1px solid #334155; border-radius: 8px; cursor: pointer; margin-top: 10px; display: flex; justify-content: space-between; }
+            .content { display: none; background: #0f172a; border: 1px solid #1e293b; border-radius: 0 0 8px 8px; padding: 10px; }
+            
+            table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+            th { text-align: center; color: #94a3b8; padding: 10px; border-bottom: 2px solid #1e293b; font-size: 0.7rem; }
+            td { padding: 12px 5px; border-bottom: 1px solid #1e293b; text-align: center; }
+            .team { text-align: left; font-weight: 700; }
+            .tip { background: #fbbf24; color: #000; padding: 5px 10px; border-radius: 5px; font-weight: 900; font-size: 0.75rem; }
+        </style>
+    </head>
+    <body>
+    <div class="wrapper">
+        <div class="brand">GAMBLINGADDICTS AI PRO</div>
+
+        <!-- VILÁGBAJNOKSÁG SZAKASZ -->
+        <button class="wc-main-btn" onclick="toggle('wc_main')">🏆 FIFA WORLD CUP 2026 (Kattints a csoportokért)</button>
+        <div id="wc_main" class="wc-container">
+            
+                <button class="btn" onclick="toggle('GROUP_A')">GROUP_A <span>▼</span></button>
+                <div id="GROUP_A" class="content">
+                    <table>
+                        <tr><th>Mérkőzés</th><th>1 X 2</th><th>O/U 2.5</th><th>GG</th><th>AI TIPP</th></tr>
+                        <tr><td class='team'>Mexico - South Africa<br><small>06.11 19:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>South Korea - Czechia<br><small>06.12 02:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Czechia - South Africa<br><small>06.18 16:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Mexico - South Korea<br><small>06.19 01:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Czechia - Mexico<br><small>06.25 01:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>South Africa - South Korea<br><small>06.25 01:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr>
+                    </table>
+                </div>
+             
+                <button class="btn" onclick="toggle('GROUP_B')">GROUP_B <span>▼</span></button>
+                <div id="GROUP_B" class="content">
+                    <table>
+                        <tr><th>Mérkőzés</th><th>1 X 2</th><th>O/U 2.5</th><th>GG</th><th>AI TIPP</th></tr>
+                        <tr><td class='team'>Canada - Bosnia-Herzegovina<br><small>06.12 19:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Qatar - Switzerland<br><small>06.13 19:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Switzerland - Bosnia-Herzegovina<br><small>06.18 19:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Canada - Qatar<br><small>06.18 22:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Switzerland - Canada<br><small>06.24 19:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Bosnia-Herzegovina - Qatar<br><small>06.24 19:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr>
+                    </table>
+                </div>
+             
+                <button class="btn" onclick="toggle('GROUP_D')">GROUP_D <span>▼</span></button>
+                <div id="GROUP_D" class="content">
+                    <table>
+                        <tr><th>Mérkőzés</th><th>1 X 2</th><th>O/U 2.5</th><th>GG</th><th>AI TIPP</th></tr>
+                        <tr><td class='team'>United States - Paraguay<br><small>06.13 01:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Australia - Turkey<br><small>06.14 04:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>United States - Australia<br><small>06.19 19:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Turkey - Paraguay<br><small>06.20 03:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Turkey - United States<br><small>06.26 02:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Paraguay - Australia<br><small>06.26 02:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr>
+                    </table>
+                </div>
+             
+                <button class="btn" onclick="toggle('GROUP_C')">GROUP_C <span>▼</span></button>
+                <div id="GROUP_C" class="content">
+                    <table>
+                        <tr><th>Mérkőzés</th><th>1 X 2</th><th>O/U 2.5</th><th>GG</th><th>AI TIPP</th></tr>
+                        <tr><td class='team'>Brazil - Morocco<br><small>06.13 22:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Haiti - Scotland<br><small>06.14 01:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Scotland - Morocco<br><small>06.19 22:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Brazil - Haiti<br><small>06.20 00:30</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Morocco - Haiti<br><small>06.24 22:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Scotland - Brazil<br><small>06.24 22:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr>
+                    </table>
+                </div>
+             
+                <button class="btn" onclick="toggle('GROUP_E')">GROUP_E <span>▼</span></button>
+                <div id="GROUP_E" class="content">
+                    <table>
+                        <tr><th>Mérkőzés</th><th>1 X 2</th><th>O/U 2.5</th><th>GG</th><th>AI TIPP</th></tr>
+                        <tr><td class='team'>Germany - Curaçao<br><small>06.14 17:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Ivory Coast - Ecuador<br><small>06.14 23:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Germany - Ivory Coast<br><small>06.20 20:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Ecuador - Curaçao<br><small>06.21 00:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Ecuador - Germany<br><small>06.25 20:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Curaçao - Ivory Coast<br><small>06.25 20:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr>
+                    </table>
+                </div>
+             
+                <button class="btn" onclick="toggle('GROUP_F')">GROUP_F <span>▼</span></button>
+                <div id="GROUP_F" class="content">
+                    <table>
+                        <tr><th>Mérkőzés</th><th>1 X 2</th><th>O/U 2.5</th><th>GG</th><th>AI TIPP</th></tr>
+                        <tr><td class='team'>Netherlands - Japan<br><small>06.14 20:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Sweden - Tunisia<br><small>06.15 02:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Netherlands - Sweden<br><small>06.20 17:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Tunisia - Japan<br><small>06.21 04:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Tunisia - Netherlands<br><small>06.25 23:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Japan - Sweden<br><small>06.25 23:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr>
+                    </table>
+                </div>
+             
+                <button class="btn" onclick="toggle('GROUP_H')">GROUP_H <span>▼</span></button>
+                <div id="GROUP_H" class="content">
+                    <table>
+                        <tr><th>Mérkőzés</th><th>1 X 2</th><th>O/U 2.5</th><th>GG</th><th>AI TIPP</th></tr>
+                        <tr><td class='team'>Spain - Cape Verde Islands<br><small>06.15 16:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Saudi Arabia - Uruguay<br><small>06.15 22:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Spain - Saudi Arabia<br><small>06.21 16:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Uruguay - Cape Verde Islands<br><small>06.21 22:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Uruguay - Spain<br><small>06.27 00:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Cape Verde Islands - Saudi Arabia<br><small>06.27 00:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr>
+                    </table>
+                </div>
+             
+                <button class="btn" onclick="toggle('GROUP_G')">GROUP_G <span>▼</span></button>
+                <div id="GROUP_G" class="content">
+                    <table>
+                        <tr><th>Mérkőzés</th><th>1 X 2</th><th>O/U 2.5</th><th>GG</th><th>AI TIPP</th></tr>
+                        <tr><td class='team'>Belgium - Egypt<br><small>06.15 19:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Iran - New Zealand<br><small>06.16 01:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Belgium - Iran<br><small>06.21 19:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>New Zealand - Egypt<br><small>06.22 01:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>New Zealand - Belgium<br><small>06.27 03:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Egypt - Iran<br><small>06.27 03:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr>
+                    </table>
+                </div>
+             
+                <button class="btn" onclick="toggle('GROUP_I')">GROUP_I <span>▼</span></button>
+                <div id="GROUP_I" class="content">
+                    <table>
+                        <tr><th>Mérkőzés</th><th>1 X 2</th><th>O/U 2.5</th><th>GG</th><th>AI TIPP</th></tr>
+                        <tr><td class='team'>France - Senegal<br><small>06.16 19:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Iraq - Norway<br><small>06.16 22:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>France - Iraq<br><small>06.22 21:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Norway - Senegal<br><small>06.23 00:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Norway - France<br><small>06.26 19:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Senegal - Iraq<br><small>06.26 19:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr>
+                    </table>
+                </div>
+             
+                <button class="btn" onclick="toggle('GROUP_J')">GROUP_J <span>▼</span></button>
+                <div id="GROUP_J" class="content">
+                    <table>
+                        <tr><th>Mérkőzés</th><th>1 X 2</th><th>O/U 2.5</th><th>GG</th><th>AI TIPP</th></tr>
+                        <tr><td class='team'>Argentina - Algeria<br><small>06.17 01:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Austria - Jordan<br><small>06.17 04:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Argentina - Austria<br><small>06.22 17:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Jordan - Algeria<br><small>06.23 03:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Jordan - Argentina<br><small>06.28 02:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Algeria - Austria<br><small>06.28 02:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr>
+                    </table>
+                </div>
+             
+                <button class="btn" onclick="toggle('GROUP_K')">GROUP_K <span>▼</span></button>
+                <div id="GROUP_K" class="content">
+                    <table>
+                        <tr><th>Mérkőzés</th><th>1 X 2</th><th>O/U 2.5</th><th>GG</th><th>AI TIPP</th></tr>
+                        <tr><td class='team'>Portugal - Congo DR<br><small>06.17 17:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Uzbekistan - Colombia<br><small>06.18 02:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Portugal - Uzbekistan<br><small>06.23 17:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Colombia - Congo DR<br><small>06.24 02:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Colombia - Portugal<br><small>06.27 23:30</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Congo DR - Uzbekistan<br><small>06.27 23:30</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr>
+                    </table>
+                </div>
+             
+                <button class="btn" onclick="toggle('GROUP_L')">GROUP_L <span>▼</span></button>
+                <div id="GROUP_L" class="content">
+                    <table>
+                        <tr><th>Mérkőzés</th><th>1 X 2</th><th>O/U 2.5</th><th>GG</th><th>AI TIPP</th></tr>
+                        <tr><td class='team'>England - Croatia<br><small>06.17 20:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Ghana - Panama<br><small>06.17 23:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>England - Ghana<br><small>06.23 20:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Panama - Croatia<br><small>06.23 23:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Panama - England<br><small>06.27 21:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Croatia - Ghana<br><small>06.27 21:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr>
+                    </table>
+                </div>
+             
+                <button class="btn" onclick="toggle('Knockout/Other')">Knockout/Other <span>▼</span></button>
+                <div id="Knockout/Other" class="content">
+                    <table>
+                        <tr><th>Mérkőzés</th><th>1 X 2</th><th>O/U 2.5</th><th>GG</th><th>AI TIPP</th></tr>
+                        <tr><td class='team'>None - None<br><small>06.28 19:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>06.29 17:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>06.29 20:30</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>06.30 01:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>06.30 17:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>06.30 21:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.01 01:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.01 16:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.01 20:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.02 00:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.02 19:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.02 23:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.03 03:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.03 18:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.03 22:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.04 01:30</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.04 17:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.04 21:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.05 20:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.06 00:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.06 19:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.07 00:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.07 16:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.07 20:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.09 20:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.10 19:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.11 21:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.12 01:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.14 19:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.15 19:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.18 21:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>None - None<br><small>07.19 19:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr>
+                    </table>
+                </div>
+            
+        </div>
+
+        <h2 style="color: #94a3b8; margin-top: 40px; border-bottom: 1px solid #334155; padding-bottom: 10px;">Európai Ligák</h2>
+        
+        <!-- LIGÁK SZAKASZ -->
+        
+            <button class="btn" onclick="toggle('Bundesliga')">Bundesliga <span>▼</span></button>
+            <div id="Bundesliga" class="content">
+                <table>
+                    <tr><th>Mérkőzés</th><th>1 X 2</th><th>O/U 2.5</th><th>GG</th><th>AI TIPP</th></tr>
+                    <tr><td class='team'>TSG 1899 Hoffenheim - VfB Stuttgart<br><small>05.02 13:30</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>SV Werder Bremen - FC Augsburg<br><small>05.02 13:30</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>FC Bayern München - 1. FC Heidenheim 1846<br><small>05.02 13:30</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>1. FC Union Berlin - 1. FC Köln<br><small>05.02 13:30</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Eintracht Frankfurt - Hamburger SV<br><small>05.02 13:30</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Bayer 04 Leverkusen - RB Leipzig<br><small>05.02 16:30</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>FC St. Pauli 1910 - 1. FSV Mainz 05<br><small>05.03 13:30</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Borussia Mönchengladbach - Borussia Dortmund<br><small>05.03 15:30</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>SC Freiburg - VfL Wolfsburg<br><small>05.03 17:30</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr>
+                </table>
+            </div>
+         
+            <button class="btn" onclick="toggle('Ligue_1')">Ligue 1 <span>▼</span></button>
+            <div id="Ligue_1" class="content">
+                <table>
+                    <tr><th>Mérkőzés</th><th>1 X 2</th><th>O/U 2.5</th><th>GG</th><th>AI TIPP</th></tr>
+                    <tr><td class='team'>FC Nantes - Olympique de Marseille<br><small>05.02 13:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Paris Saint-Germain FC - FC Lorient<br><small>05.02 15:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>FC Metz - AS Monaco FC<br><small>05.02 17:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>OGC Nice - Racing Club de Lens<br><small>05.02 19:05</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Lille OSC - Le Havre AC<br><small>05.03 13:00</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>AJ Auxerre - Angers SCO<br><small>05.03 15:15</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Paris FC - Stade Brestois 29<br><small>05.03 15:15</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>RC Strasbourg Alsace - Toulouse FC<br><small>05.03 15:15</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr> <tr><td class='team'>Olympique Lyonnais - Stade Rennais FC 1901<br><small>05.03 18:45</small></td><td>50%|25%|25%</td><td>55%/45%</td><td>60%</td><td><span class='tip'>1X & U3.5</span></td></tr>
+                </table>
+            </div>
+        
+    </div>
+
+    <script>
+        function toggle(id) {
+            var x = document.getElementById(id);
+            x.style.display = (x.style.display === "block") ? "none" : "block";
+        }
+    </script>
+    </body>
+    </html>
+    
