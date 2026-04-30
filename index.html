@@ -1,0 +1,1533 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+            body { background: #0b0f1a; color: #f1f5f9; font-family: 'Inter', sans-serif; padding: 20px; display: flex; justify-content: center; }
+            .container { width: 800px; }
+            .header { text-align: center; color: #38bdf8; font-weight: 900; font-size: 1.5rem; margin-bottom: 20px; text-transform: uppercase; }
+            .league-btn { width: 100%; background: #1e293b; border: 1px solid #334155; color: white; padding: 12px; text-align: left; 
+                           font-weight: 700; cursor: pointer; border-radius: 6px; margin-top: 5px; display: flex; justify-content: space-between; }
+            .league-content { display: none; background: #0f172a; padding: 5px; border-radius: 0 0 6px 6px; border: 1px solid #1e293b; }
+            table { width: 100%; border-collapse: collapse; font-size: 0.75rem; }
+            th { background: #1e293b; padding: 10px; color: #94a3b8; text-transform: uppercase; font-size: 0.6rem; }
+            td { padding: 12px 8px; border-bottom: 1px solid #1e293b; text-align: center; }
+            .match { text-align: left; width: 200px; }
+            .prob-badge { background: #1e293b; padding: 3px 6px; border-radius: 4px; font-weight: 600; border: 1px solid #334155; }
+            .tip-box { background: #fbbf24; color: #000; font-weight: 900; padding: 5px 10px; border-radius: 4px; font-size: 0.75rem; }
+            .gg-text { color: #fbbf24; font-weight: 700; }
+            .o-text { color: #10b981; font-weight: 700; }
+            .u-text { color: #ef4444; font-weight: 700; }
+        </style>
+    </head>
+    <body>
+    <div class="container">
+        <div class="header">GamblingAddicts AI Pro Predictor</div>
+        
+        <div style="margin-bottom:10px">
+            <button class="league-btn" onclick="toggle('PremierLeague')">Premier League <span>+</span></button>
+            <div id="PremierLeague" class="league-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mérkőzés</th>
+                            <th>1 X 2 Esély</th>
+                            <th>O2.5 / U2.5</th>
+                            <th>GG %</th>
+                            <th>AI PRO TIP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td class="match">
+                                <b>Leeds United FC - Burnley FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.01 19:00 | xG: 2.89</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">64%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">41%</span>
+                            </td>
+                            <td><span class="o-text">90%</span> / <span class="u-text">10%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Brentford FC - West Ham United FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 14:00 | xG: 2.86</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">66%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">39%</span>
+                            </td>
+                            <td><span class="o-text">89%</span> / <span class="u-text">11%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Newcastle United FC - Brighton & Hove Albion FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 14:00 | xG: 2.70</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">46%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">59%</span>
+                            </td>
+                            <td><span class="o-text">85%</span> / <span class="u-text">15%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Wolverhampton Wanderers FC - Sunderland AFC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 14:00 | xG: 2.46</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">39%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">66%</span>
+                            </td>
+                            <td><span class="o-text">77%</span> / <span class="u-text">23%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Arsenal FC - Fulham FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 16:30 | xG: 2.65</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">74%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">31%</span>
+                            </td>
+                            <td><span class="o-text">83%</span> / <span class="u-text">17%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>AFC Bournemouth - Crystal Palace FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.03 13:00 | xG: 2.71</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">60%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">45%</span>
+                            </td>
+                            <td><span class="o-text">85%</span> / <span class="u-text">15%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Manchester United FC - Liverpool FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.03 14:30 | xG: 3.05</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">57%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">48%</span>
+                            </td>
+                            <td><span class="o-text">95%</span> / <span class="u-text">5%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Aston Villa FC - Tottenham Hotspur FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.03 18:00 | xG: 2.71</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">69%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">36%</span>
+                            </td>
+                            <td><span class="o-text">85%</span> / <span class="u-text">15%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Chelsea FC - Nottingham Forest FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.04 14:00 | xG: 2.72</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">64%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">41%</span>
+                            </td>
+                            <td><span class="o-text">85%</span> / <span class="u-text">15%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Everton FC - Manchester City FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.04 19:00 | xG: 2.62</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">39%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">66%</span>
+                            </td>
+                            <td><span class="o-text">82%</span> / <span class="u-text">18%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Liverpool FC - Chelsea FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.09 11:30 | xG: 2.93</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">60%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">45%</span>
+                            </td>
+                            <td><span class="o-text">92%</span> / <span class="u-text">8%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Sunderland AFC - Manchester United FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.09 14:00 | xG: 2.71</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">42%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">63%</span>
+                            </td>
+                            <td><span class="o-text">85%</span> / <span class="u-text">15%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Brighton & Hove Albion FC - Wolverhampton Wanderers FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.09 14:00 | xG: 2.55</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">78%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">27%</span>
+                            </td>
+                            <td><span class="o-text">80%</span> / <span class="u-text">20%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Fulham FC - AFC Bournemouth</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.09 14:00 | xG: 2.83</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">52%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">53%</span>
+                            </td>
+                            <td><span class="o-text">89%</span> / <span class="u-text">11%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1X & GG</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Manchester City FC - Brentford FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.09 16:30 | xG: 2.84</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">70%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">35%</span>
+                            </td>
+                            <td><span class="o-text">89%</span> / <span class="u-text">11%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Crystal Palace FC - Everton FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 13:00 | xG: 2.34</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">52%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">53%</span>
+                            </td>
+                            <td><span class="o-text">73%</span> / <span class="u-text">27%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1X & U3.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Burnley FC - Aston Villa FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 13:00 | xG: 2.83</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">34%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">71%</span>
+                            </td>
+                            <td><span class="o-text">88%</span> / <span class="u-text">12%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Nottingham Forest FC - Newcastle United FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 13:00 | xG: 2.66</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">53%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">52%</span>
+                            </td>
+                            <td><span class="o-text">83%</span> / <span class="u-text">17%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1X & GG</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>West Ham United FC - Arsenal FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 15:30 | xG: 2.81</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">29%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">76%</span>
+                            </td>
+                            <td><span class="o-text">88%</span> / <span class="u-text">12%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+         
+        <div style="margin-bottom:10px">
+            <button class="league-btn" onclick="toggle('Bundesliga')">Bundesliga <span>+</span></button>
+            <div id="Bundesliga" class="league-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mérkőzés</th>
+                            <th>1 X 2 Esély</th>
+                            <th>O2.5 / U2.5</th>
+                            <th>GG %</th>
+                            <th>AI PRO TIP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td class="match">
+                                <b>TSG 1899 Hoffenheim - VfB Stuttgart</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 13:30 | xG: 3.42</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">54%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">51%</span>
+                            </td>
+                            <td><span class="o-text">95%</span> / <span class="u-text">5%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1X & GG</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>SV Werder Bremen - FC Augsburg</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 13:30 | xG: 2.96</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">51%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">54%</span>
+                            </td>
+                            <td><span class="o-text">93%</span> / <span class="u-text">7%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1X & GG</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>FC Bayern München - 1. FC Heidenheim 1846</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 13:30 | xG: 4.04</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">90%</span> 
+                                <span class="prob-badge">-2%</span> 
+                                <span class="prob-badge">12%</span>
+                            </td>
+                            <td><span class="o-text">95%</span> / <span class="u-text">5%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>1. FC Union Berlin - 1. FC Köln</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 13:30 | xG: 3.02</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">52%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">53%</span>
+                            </td>
+                            <td><span class="o-text">94%</span> / <span class="u-text">6%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1X & GG</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Eintracht Frankfurt - Hamburger SV</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 13:30 | xG: 3.24</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">65%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">40%</span>
+                            </td>
+                            <td><span class="o-text">95%</span> / <span class="u-text">5%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Bayer 04 Leverkusen - RB Leipzig</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 16:30 | xG: 3.30</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">53%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">52%</span>
+                            </td>
+                            <td><span class="o-text">95%</span> / <span class="u-text">5%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1X & GG</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>FC St. Pauli 1910 - 1. FSV Mainz 05</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.03 13:30 | xG: 2.68</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">44%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">61%</span>
+                            </td>
+                            <td><span class="o-text">84%</span> / <span class="u-text">16%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Borussia Mönchengladbach - Borussia Dortmund</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.03 15:30 | xG: 2.92</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">35%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">70%</span>
+                            </td>
+                            <td><span class="o-text">91%</span> / <span class="u-text">9%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>SC Freiburg - VfL Wolfsburg</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.03 17:30 | xG: 3.26</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">66%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">39%</span>
+                            </td>
+                            <td><span class="o-text">95%</span> / <span class="u-text">5%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Borussia Dortmund - Eintracht Frankfurt</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.08 18:30 | xG: 3.36</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">69%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">36%</span>
+                            </td>
+                            <td><span class="o-text">95%</span> / <span class="u-text">5%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>VfB Stuttgart - Bayer 04 Leverkusen</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.09 13:30 | xG: 3.39</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">58%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">47%</span>
+                            </td>
+                            <td><span class="o-text">95%</span> / <span class="u-text">5%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>TSG 1899 Hoffenheim - SV Werder Bremen</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.09 13:30 | xG: 3.19</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">69%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">36%</span>
+                            </td>
+                            <td><span class="o-text">95%</span> / <span class="u-text">5%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>FC Augsburg - Borussia Mönchengladbach</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.09 13:30 | xG: 2.92</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">55%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">50%</span>
+                            </td>
+                            <td><span class="o-text">91%</span> / <span class="u-text">9%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>RB Leipzig - FC St. Pauli 1910</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.09 13:30 | xG: 2.92</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">80%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">25%</span>
+                            </td>
+                            <td><span class="o-text">91%</span> / <span class="u-text">9%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>VfL Wolfsburg - FC Bayern München</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.09 16:30 | xG: 4.00</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">21%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">84%</span>
+                            </td>
+                            <td><span class="o-text">95%</span> / <span class="u-text">5%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Hamburger SV - SC Freiburg</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 13:30 | xG: 2.88</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">46%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">59%</span>
+                            </td>
+                            <td><span class="o-text">90%</span> / <span class="u-text">10%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>1. FC Köln - 1. FC Heidenheim 1846</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 15:30 | xG: 3.20</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">63%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">42%</span>
+                            </td>
+                            <td><span class="o-text">95%</span> / <span class="u-text">5%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>1. FSV Mainz 05 - 1. FC Union Berlin</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 17:30 | xG: 2.87</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">59%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">46%</span>
+                            </td>
+                            <td><span class="o-text">90%</span> / <span class="u-text">10%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+         
+        <div style="margin-bottom:10px">
+            <button class="league-btn" onclick="toggle('LaLiga')">La Liga <span>+</span></button>
+            <div id="LaLiga" class="league-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mérkőzés</th>
+                            <th>1 X 2 Esély</th>
+                            <th>O2.5 / U2.5</th>
+                            <th>GG %</th>
+                            <th>AI PRO TIP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td class="match">
+                                <b>Girona FC - RCD Mallorca</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.01 19:00 | xG: 2.69</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">55%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">50%</span>
+                            </td>
+                            <td><span class="o-text">84%</span> / <span class="u-text">16%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1X & GG</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Villarreal CF - Levante UD</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 12:00 | xG: 2.80</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">76%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">29%</span>
+                            </td>
+                            <td><span class="o-text">88%</span> / <span class="u-text">12%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Valencia CF - Club Atlético de Madrid</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 14:15 | xG: 2.68</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">41%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">64%</span>
+                            </td>
+                            <td><span class="o-text">84%</span> / <span class="u-text">16%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Deportivo Alavés - Athletic Club</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 16:30 | xG: 2.60</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">50%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">55%</span>
+                            </td>
+                            <td><span class="o-text">81%</span> / <span class="u-text">19%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1X & GG</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>CA Osasuna - FC Barcelona</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 19:00 | xG: 2.91</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">35%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">70%</span>
+                            </td>
+                            <td><span class="o-text">91%</span> / <span class="u-text">9%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>RC Celta de Vigo - Elche CF</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.03 12:00 | xG: 2.75</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">62%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">43%</span>
+                            </td>
+                            <td><span class="o-text">86%</span> / <span class="u-text">14%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Getafe CF - Rayo Vallecano de Madrid</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.03 14:15 | xG: 2.04</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">59%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">46%</span>
+                            </td>
+                            <td><span class="o-text">64%</span> / <span class="u-text">36%</span></td>
+                            <td class="gg-text">70%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Real Betis Balompié - Real Oviedo</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.03 16:30 | xG: 2.55</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">76%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">29%</span>
+                            </td>
+                            <td><span class="o-text">80%</span> / <span class="u-text">20%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>RCD Espanyol de Barcelona - Real Madrid CF</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.03 19:00 | xG: 2.78</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">34%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">71%</span>
+                            </td>
+                            <td><span class="o-text">87%</span> / <span class="u-text">13%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Sevilla FC - Real Sociedad de Fútbol</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.04 19:00 | xG: 3.00</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">43%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">62%</span>
+                            </td>
+                            <td><span class="o-text">94%</span> / <span class="u-text">6%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Levante UD - CA Osasuna</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.08 19:00 | xG: 2.53</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">43%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">62%</span>
+                            </td>
+                            <td><span class="o-text">79%</span> / <span class="u-text">21%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Elche CF - Deportivo Alavés</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.09 12:00 | xG: 2.75</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">57%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">48%</span>
+                            </td>
+                            <td><span class="o-text">86%</span> / <span class="u-text">14%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Sevilla FC - RCD Espanyol de Barcelona</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.09 14:15 | xG: 2.76</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">50%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">55%</span>
+                            </td>
+                            <td><span class="o-text">86%</span> / <span class="u-text">14%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Club Atlético de Madrid - RC Celta de Vigo</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.09 16:30 | xG: 2.75</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">63%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">42%</span>
+                            </td>
+                            <td><span class="o-text">86%</span> / <span class="u-text">14%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Real Sociedad de Fútbol - Real Betis Balompié</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.09 19:00 | xG: 2.96</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">51%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">54%</span>
+                            </td>
+                            <td><span class="o-text">93%</span> / <span class="u-text">7%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1X & GG</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>RCD Mallorca - Villarreal CF</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 12:00 | xG: 2.86</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">37%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">68%</span>
+                            </td>
+                            <td><span class="o-text">89%</span> / <span class="u-text">11%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Athletic Club - Valencia CF</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 14:15 | xG: 2.56</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">56%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">49%</span>
+                            </td>
+                            <td><span class="o-text">80%</span> / <span class="u-text">20%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Real Oviedo - Getafe CF</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 16:30 | xG: 2.13</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">37%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">68%</span>
+                            </td>
+                            <td><span class="o-text">67%</span> / <span class="u-text">33%</span></td>
+                            <td class="gg-text">74%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>FC Barcelona - Real Madrid CF</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 19:00 | xG: 3.30</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">62%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">43%</span>
+                            </td>
+                            <td><span class="o-text">95%</span> / <span class="u-text">5%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+         
+        <div style="margin-bottom:10px">
+            <button class="league-btn" onclick="toggle('SerieA')">Serie A <span>+</span></button>
+            <div id="SerieA" class="league-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mérkőzés</th>
+                            <th>1 X 2 Esély</th>
+                            <th>O2.5 / U2.5</th>
+                            <th>GG %</th>
+                            <th>AI PRO TIP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td class="match">
+                                <b>AC Pisa 1909 - US Lecce</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.01 18:45 | xG: 2.28</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">47%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">58%</span>
+                            </td>
+                            <td><span class="o-text">71%</span> / <span class="u-text">29%</span></td>
+                            <td class="gg-text">85%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Udinese Calcio - Torino FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 13:00 | xG: 2.66</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">59%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">46%</span>
+                            </td>
+                            <td><span class="o-text">83%</span> / <span class="u-text">17%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Como 1907 - SSC Napoli</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 16:00 | xG: 2.53</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">58%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">47%</span>
+                            </td>
+                            <td><span class="o-text">79%</span> / <span class="u-text">21%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Atalanta BC - Genoa CFC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 18:45 | xG: 2.44</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">67%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">38%</span>
+                            </td>
+                            <td><span class="o-text">76%</span> / <span class="u-text">24%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Bologna FC 1909 - Cagliari Calcio</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.03 10:30 | xG: 2.47</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">64%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">41%</span>
+                            </td>
+                            <td><span class="o-text">77%</span> / <span class="u-text">23%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>US Sassuolo Calcio - AC Milan</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.03 13:00 | xG: 2.37</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">43%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">62%</span>
+                            </td>
+                            <td><span class="o-text">74%</span> / <span class="u-text">26%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Juventus FC - Hellas Verona FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.03 16:00 | xG: 2.44</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">85%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">20%</span>
+                            </td>
+                            <td><span class="o-text">76%</span> / <span class="u-text">24%</span></td>
+                            <td class="gg-text">86%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>FC Internazionale Milano - Parma Calcio 1913</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.03 18:45 | xG: 2.66</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">82%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">23%</span>
+                            </td>
+                            <td><span class="o-text">83%</span> / <span class="u-text">17%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>US Cremonese - SS Lazio</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.04 16:30 | xG: 2.17</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">37%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">68%</span>
+                            </td>
+                            <td><span class="o-text">68%</span> / <span class="u-text">32%</span></td>
+                            <td class="gg-text">75%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>AS Roma - ACF Fiorentina</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.04 18:45 | xG: 2.34</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">70%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">35%</span>
+                            </td>
+                            <td><span class="o-text">73%</span> / <span class="u-text">27%</span></td>
+                            <td class="gg-text">89%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Torino FC - US Sassuolo Calcio</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.08 18:45 | xG: 2.66</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">48%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">57%</span>
+                            </td>
+                            <td><span class="o-text">83%</span> / <span class="u-text">17%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Cagliari Calcio - Udinese Calcio</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.09 13:00 | xG: 2.53</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">48%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">57%</span>
+                            </td>
+                            <td><span class="o-text">79%</span> / <span class="u-text">21%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>SS Lazio - FC Internazionale Milano</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.09 16:00 | xG: 2.60</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">39%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">66%</span>
+                            </td>
+                            <td><span class="o-text">81%</span> / <span class="u-text">19%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>US Lecce - Juventus FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.09 18:45 | xG: 2.24</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">28%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">77%</span>
+                            </td>
+                            <td><span class="o-text">70%</span> / <span class="u-text">30%</span></td>
+                            <td class="gg-text">74%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Hellas Verona FC - Como 1907</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 10:30 | xG: 2.43</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">25%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">80%</span>
+                            </td>
+                            <td><span class="o-text">76%</span> / <span class="u-text">24%</span></td>
+                            <td class="gg-text">84%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>ACF Fiorentina - Genoa CFC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 13:00 | xG: 2.51</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">54%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">51%</span>
+                            </td>
+                            <td><span class="o-text">78%</span> / <span class="u-text">22%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1X & GG</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>US Cremonese - AC Pisa 1909</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 13:00 | xG: 2.37</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">58%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">47%</span>
+                            </td>
+                            <td><span class="o-text">74%</span> / <span class="u-text">26%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Parma Calcio 1913 - AS Roma</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 16:00 | xG: 2.07</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">39%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">66%</span>
+                            </td>
+                            <td><span class="o-text">65%</span> / <span class="u-text">35%</span></td>
+                            <td class="gg-text">67%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>AC Milan - Atalanta BC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 18:45 | xG: 2.26</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">61%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">44%</span>
+                            </td>
+                            <td><span class="o-text">71%</span> / <span class="u-text">29%</span></td>
+                            <td class="gg-text">85%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+         
+        <div style="margin-bottom:10px">
+            <button class="league-btn" onclick="toggle('Ligue1')">Ligue 1 <span>+</span></button>
+            <div id="Ligue1" class="league-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mérkőzés</th>
+                            <th>1 X 2 Esély</th>
+                            <th>O2.5 / U2.5</th>
+                            <th>GG %</th>
+                            <th>AI PRO TIP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td class="match">
+                                <b>FC Nantes - Olympique de Marseille</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 13:00 | xG: 2.82</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">33%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">72%</span>
+                            </td>
+                            <td><span class="o-text">88%</span> / <span class="u-text">12%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Paris Saint-Germain FC - FC Lorient</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 15:00 | xG: 3.00</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">76%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">29%</span>
+                            </td>
+                            <td><span class="o-text">94%</span> / <span class="u-text">6%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>FC Metz - AS Monaco FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 17:00 | xG: 3.26</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">34%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">71%</span>
+                            </td>
+                            <td><span class="o-text">95%</span> / <span class="u-text">5%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>OGC Nice - Racing Club de Lens</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.02 19:05 | xG: 3.01</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">31%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">74%</span>
+                            </td>
+                            <td><span class="o-text">94%</span> / <span class="u-text">6%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Lille OSC - Le Havre AC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.03 13:00 | xG: 2.52</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">74%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">31%</span>
+                            </td>
+                            <td><span class="o-text">79%</span> / <span class="u-text">21%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>AJ Auxerre - Angers SCO</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.03 15:15 | xG: 2.23</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">52%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">53%</span>
+                            </td>
+                            <td><span class="o-text">70%</span> / <span class="u-text">30%</span></td>
+                            <td class="gg-text">83%</td>
+                            <td><span class="tip-box">1X & U3.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Paris FC - Stade Brestois 29</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.03 15:15 | xG: 2.86</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">54%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">51%</span>
+                            </td>
+                            <td><span class="o-text">89%</span> / <span class="u-text">11%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1X & GG</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>RC Strasbourg Alsace - Toulouse FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.03 15:15 | xG: 2.88</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">60%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">45%</span>
+                            </td>
+                            <td><span class="o-text">90%</span> / <span class="u-text">10%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Olympique Lyonnais - Stade Rennais FC 1901</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.03 18:45 | xG: 2.81</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">58%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">47%</span>
+                            </td>
+                            <td><span class="o-text">88%</span> / <span class="u-text">12%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Racing Club de Lens - FC Nantes</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.08 18:45 | xG: 2.80</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">83%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">22%</span>
+                            </td>
+                            <td><span class="o-text">88%</span> / <span class="u-text">12%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Le Havre AC - Olympique de Marseille</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 19:00 | xG: 2.71</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">39%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">66%</span>
+                            </td>
+                            <td><span class="o-text">85%</span> / <span class="u-text">15%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>AJ Auxerre - OGC Nice</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 19:00 | xG: 2.56</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">55%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">50%</span>
+                            </td>
+                            <td><span class="o-text">80%</span> / <span class="u-text">20%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>AS Monaco FC - Lille OSC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 19:00 | xG: 3.01</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">50%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">55%</span>
+                            </td>
+                            <td><span class="o-text">94%</span> / <span class="u-text">6%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>FC Metz - FC Lorient</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 19:00 | xG: 3.08</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">37%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">68%</span>
+                            </td>
+                            <td><span class="o-text">95%</span> / <span class="u-text">5%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Toulouse FC - Olympique Lyonnais</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 19:00 | xG: 2.70</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">45%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">60%</span>
+                            </td>
+                            <td><span class="o-text">85%</span> / <span class="u-text">15%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Paris Saint-Germain FC - Stade Brestois 29</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 19:00 | xG: 3.02</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">78%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">27%</span>
+                            </td>
+                            <td><span class="o-text">95%</span> / <span class="u-text">5%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Angers SCO - RC Strasbourg Alsace</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 19:00 | xG: 2.54</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">42%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">63%</span>
+                            </td>
+                            <td><span class="o-text">80%</span> / <span class="u-text">20%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">2 & O1.5</span></td>
+                        </tr>
+                         
+                        <tr>
+                            <td class="match">
+                                <b>Stade Rennais FC 1901 - Paris FC</b><br>
+                                <span style="color:#64748b; font-size:0.65rem">05.10 19:00 | xG: 2.97</span>
+                            </td>
+                            <td>
+                                <span class="prob-badge">66%</span> 
+                                <span class="prob-badge">-5%</span> 
+                                <span class="prob-badge">39%</span>
+                            </td>
+                            <td><span class="o-text">93%</span> / <span class="u-text">7%</span></td>
+                            <td class="gg-text">90%</td>
+                            <td><span class="tip-box">1 & O1.5</span></td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+    <script>
+        function toggle(id) {
+            var x = document.getElementById(id);
+            x.style.display = (x.style.display === "block") ? "none" : "block";
+        }
+    </script>
+    </body>
+    </html>
+    
